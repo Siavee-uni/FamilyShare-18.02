@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container card">
+
+
+
+<div class="container pt-3">
+  <div class="card">
     <div class="row "style="margin-left:0px ;margin-top: 10px"> 
     <h1>Edit Post</h1>
     </div>
@@ -83,5 +87,6 @@
         {{Form::hidden('_method','PUT')}}
         {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
-    </div>    
+    </div>   
+  </div> 
 @endsection

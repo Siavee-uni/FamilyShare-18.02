@@ -1,91 +1,102 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container card">
-<div class="row "style="margin-left:0px ;margin-top: 20px"> 
-<h1>New camera</h1>
-</div>
+
+<div class="container pt-3">
+  <div class="card">
+    <div class="pt-3 pl-3" style="background-color:#56b03f32"> 
+        
+         <p>Füge hier einen Titel und den Streaminglink zur Ip-Cam hinzu</p>
+        
+    </div>
+
     {!! Form::open(['action' => 'PostsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-        <div class="form-group">
-            {{Form::label('title', 'Title')}}
+    @csrf
+        <div class="form-group pl-3">
+            
             {{Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Title'])}}
         </div>
 
-        <div class="form-group">
-            {{Form::label('body', 'Video Link')}}
+        <div class="form-group pl-3">
+           
             {{Form::text('body', '', ['class' => 'form-control', 'placeholder' => 'Video Link like this http://131.173.8.23:80/mjpg/video.mjpg'])}}
         </div>
 
-        <h3>Rules: stream is reachable on</h3>
+        
 
-       <!-- TimeBasedRules new extension-->
-    <div class="row "style="margin-bottom: 20px;margin-top: 20px">  
-        <div class="form-check col-md-1">
-            {{Form::checkbox('monday', 'value')}}
-            <label class="form-check-label" for="defaultCheck1">
-            Mo
-            </label>
-          </div>
-
-          <div class="form-check col-md-1">
-            {{Form::checkbox('tuesday', 'value')}}
-            <label class="form-check-label" for="defaultCheck1">
-            Tu 
-            </label>
-          </div>
+      
+    <div class="pt-3 pl-3"style="background-color:#56b03f32">  
+      <p>Wähle Tag und Zeit an dem der Stream zu sehen sein soll</p>
+     </div>
+     
+    <div class="row pl-3" style="margin-right: 400px;margin-top:px">
+      <div class="col">
+        {{Form::checkbox('monday', 'value')}}
           
-          <div class="form-check col-md-1">
-            {{Form::checkbox('wednesday', 'value')}}
-            <label class="form-check-label" for="defaultCheck1">
-            We
-            </label>
-          </div>
-          <div class="form-check col-md-1">
-            {{Form::checkbox('thursday', 'value')}}
-            <label class="form-check-label" for="defaultCheck1">
-            Th
-            </label>
-          </div>
-          <div class="form-check col-md-1">
-            {{Form::checkbox('friday', 'value')}}
-            <label class="form-check-label" for="defaultCheck1">
-            Fr
-            </label>
-          </div>
-          <div class="form-check col-md-1">
-            {{Form::checkbox('saturday', 'value')}}
-            <label class="form-check-label" for="defaultCheck1">
-            Sa
-            </label>
-          </div>
-          <div class="form-check col-md-1">
-            {{Form::checkbox('sunday', 'value')}}
-            <label class="form-check-label" for="defaultCheck1">
-            Su
-            </label>
-          </div>
-    </div>
-    <!-- Time-->
-    <div class="row"style="margin-bottom: 20px;margin-top: 20px">    
-        <div class=""style="margin-left: 15px">
-          <p>from</p>
-        </div> 
-          <div class="col-md-1 ">
-            {{Form::selectRange('numberfrom', 0, 24)}}
-          </div>    
-    
-        <div class=""style="margin-left: -20px">  
-        <p>to</p>
+          <label for="sasquatch">Montag</label>
+      </div>
+        <div class="col-10">
+          <input type="checkbox" id="a2" name="friday">
+          <label for="sasquatch">Freitag</label>
         </div>
-        <div class="col-md-1">
-          {{Form::selectRange('numberto', 0, 24)}}
-        </div>   
-        <div class=""style="margin-left: -20px">  
-            <p>Uhr</p>
-            </div> 
-  </div>
-        {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
+      </div>  
 
-    {!! Form::close() !!}
+        <div class="row pl-3"style="margin-right: 400px;margin-top:px">
+          <div class="col">
+          <input type="checkbox" id="a3" name="tuesday">
+          <label for="sasquatch">Dienstag</label>
+        </div>
+        <div class="col-10">
+          <input type="checkbox" id="a4" name="saturday">
+          <label for="sasquatch">Samstag</label>
+        </div>
+      </div>
+
+      <div class="row pl-3"style="margin-right: 400px;margin-top:px">
+        <div class="col">
+          <input type="checkbox" id="a5" name="wednesday">
+          <label for="sasquatch">Mittwoch</label>
+        </div>
+        <div class="col-10">
+          <input type="checkbox" id="a6" name="sunday">
+          <label for="sasquatch">Sonntag</label>
+        </div>
+     </div>
+
+      <div class="row pl-3">
+        <div class="col">
+          <input type="checkbox" id="a7" name="thursday">
+          <label for="sasquatch">Donnerstag</label>
+        </div>
+      </div>
+    
+    <!-- Time-->
+    <div class="row pl-3"style="margin-bottom: 20px;margin-top: 20px">  
+        
+        <div class=""style="margin-left: 15px;margin-top: 15px; margin-right: 15px">
+          <p>von</p>
+        </div> 
+
+        <input type="time" id="appt" name="timefrom"
+       min="00:00" max="24:00">  
+        
+        <div class=""style="margin-left: 15px;margin-top: 15px; margin-right: 15px">
+        <p>bis</p>
+        </div>
+
+
+       <input type="time" id="appt" name="timeto"
+       min="00:00" max="24:00">
+
+       <div class=""style="margin-left: 15px;margin-top: 15px; margin-right: 15px">
+            <p>Uhr</p>
+        </div> 
+  </div>
+        <div class="pl-3">
+        {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
+        </div>
+      {!! Form::close() !!}
 </div>
+</div>  
+
 @endsection

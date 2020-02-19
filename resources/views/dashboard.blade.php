@@ -1,39 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    .trigger {
-padding: 1px 10px;
-font-size: 12px;
-font-weight: 400;
-border-radius: 10px;
-background-color: #eee;
-color: #212121;
-display: inline-block;
-margin: 2px 5px;
-}
 
-.hoverable, .trigger {
-transition: box-shadow 0.55s;
-box-shadow: 0;
-}
-
-.hoverable:hover, .trigger:hover {
-transition: box-shadow 0.45s;
-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-</style>
-<div class="container">
-    
-        <div class="card"style="margin-bottom: 20px;">
+<div class="container" style="padding-top:50px" >
+    <div class="card" >
+        <div class=""style="margin-bottom: 20px;">
             <div class=""style="margin-top:10px;margin-left:10px;">
                 <h2>Dashboard</h2>
             </div>  
-            <div class=""style="margin-bottom:;margin-left:10px;">
-                <h4>You can manage your kamaras here.</h4>
+            <div class=""style="margin-bottom:;margin-left:12px;">
+                <h4>Alle deine Kameras im Überblick</h4>
             </div>  
-            <div class=""style="margin-bottom:10px;margin-left:10px;">
-                <a href="/posts/create" class="btn btn-primary">New camera</a>
+            <div class="pt-4"style="margin-left:10px;">
+                <a href="/posts/create" class="btn">Neue kamera</a>
                 
             </div>
         </div>
@@ -47,7 +26,7 @@ box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
                     <table class="table table-striped ">
                             @foreach($posts as $post)
                                 <tr>
-                                    <td><iframe width="300" height="200" src="{{$post->body}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <td><img style="width:40%" class="" src="/png/videoplayer.jpg">
                                     </td>
                                     
                                     <td> <div style="margin-top: 5px"><h4>Titel: {{$post->title}}</h4></div></td>
@@ -65,7 +44,7 @@ box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
                     </table>
                             @endif
             
-            
+                        </div>
 </div>
   
 @endsection

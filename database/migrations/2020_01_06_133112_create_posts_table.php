@@ -18,15 +18,15 @@ class CreatePostsTable extends Migration
             $table->integer('user_id');
             $table->string('title');
             $table->mediumText('body');
-            /**$table->boolean('monday');->default(0);
-            $table->boolean('tuesday');->default(0);
-            $table->boolean('wednesday');->default(0);
-            $table->boolean('thursday');->default(0);
-            $table->boolean('friday');->default(0);
-            $table->boolean('saturday');->default(0);
-            $table->boolean('sunday');->default(0);
-            $table->integer('numberfrom');
-            $table->integer('numberto');*/
+            $table->boolean('monday')->default(0);
+            $table->boolean('tuesday')->default(0);
+            $table->boolean('wednesday')->default(0);
+            $table->boolean('thursday')->default(0);
+            $table->boolean('friday')->default(0);
+            $table->boolean('saturday')->default(0);
+            $table->boolean('sunday')->default(0);
+            $table->time('timefrom')->nullable();
+            $table->time('timeto')->nullable();
             $table->timestamps();
         });
     }

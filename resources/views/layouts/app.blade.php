@@ -1,44 +1,47 @@
 
-<style>
-    h5 {
-    color: white;
-    font-size: 2em ;
-    display:inline-block;
-    }
-</style>
+
+
 
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FamilyShare</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+  <!-- Favicons -->
+  <link href="img/logo.png" rel="icon">
+  
 
-    <title>FamilyShare</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
+  <!-- <link rel="stylesheet" href="css/bootstrap.css"> 
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  <!-- Libraries CSS Files -->
+  <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="/lib/owlcarousel/assets/owl.theme.default.min.css" rel="stylesheet">
+  <link href="/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/lib/animate/animate.min.css" rel="stylesheet">
+  <link href="/lib/modal-video/css/modal-video.min.css" rel="stylesheet">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/about.css') }}" rel="stylesheet">
+  <!-- Main Stylesheet File -->
+  <link href="/css/style.css" rel="stylesheet">
    
 
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm @yield('nav') ">
             <div class="container">
                 <a class="navbar-brand d-flex" href="{{ url('/') }}">
-                    <div><img src="/png/Logo.png" style="height: 35px; border-right: 1px solid #333;" class="pr-3"></div>
-                    <div class="pl-3 pt-1">FamilyShare</div>
+                    <div><img src="/img/logo.png" style="height: 60px; border-right: 1px solid #333;" class="pr-3"></div>
+                    <a class="pl-2" href="/">FamilyShare</a>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -46,10 +49,19 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        <h5><a class="nav-link pl-4 pt-3  " href="posts">Cams</a></h5>
-                        <h5><a class="nav-link pl-2 pt-3" href="#s">OmaMode</a></h5>
-                        <h5><a class="nav-link pl-2 pt-3" href="/about">About</a></h5>
+                    <ul class="navbar-nav pl-4 ">
+                        @guest    
+                          
+                            <h5><a class="nav-link pl-2 pt-2" href="/#features">Features</a></h5>
+                            <h5><a class="nav-link pl-2 pt-2" href="/#pricing">Preise</a></h5>
+                            <h5><a class="nav-link pl-2 pt-2" href="/#team">Team</a></h5>
+                            <h5><a class="nav-link pl-2 pt-2" href="/#contact">Kontakt</a></h5>
+    
+                        @else   
+                            <h5><a class="nav-link pl-2 pt-2" href="posts">Videos</a></h5>
+                            <h5><a class="nav-link pl-2 pt-2" href="/simple">SimpleMode</a></h5>
+                            
+                        @endguest 
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -57,11 +69,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <h5><a class="nav-link pl-4 pt-3" href="{{ route('login') }}">{{ __('Login') }}</a></h5>
+                                <h5><a class="nav-link pl-3 pt-2" href="{{ route('login') }}">{{ __('Login') }}</a></h5>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <h5><a class="nav-link pl-4 pt-3" href="{{ route('register') }}">{{ __('Register') }}</a></h5>
+                                    <h5><a class="nav-link pl-3 pt-2" href="{{ route('register') }}">{{ __('Register') }}</a></h5>
                                 </li>
                             @endif
                         @else
@@ -92,22 +104,26 @@
                 </div>
             </div>
         </nav>
-
-        <main class="py-5">
-            @yield('content')
-        </main>
     </div>
-
-    <!-- Footer -->
-    
-        <footer id="sticky-footer" class="py-2 bg-dark text-white-50 fixed-bottom">
-          <div class="container text-center">
-            <small>CopyRight © 2020 FamilyShare All Rights Reserved</small>
-          </div>
-        </footer>
+    <main class="py-0">
+        @yield('content')
+    </main>
       
-    <!-- Copyright -->
-  
+  <!-- JavaScript Libraries -->
+  <script src="/lib/jquery/jquery.min.js"></script>
+  <script src="/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/lib/superfish/hoverIntent.js"></script>
+  <script src="/lib/superfish/superfish.min.js"></script>
+  <script src="/lib/easing/easing.min.js"></script>
+  <script src="/lib/modal-video/js/modal-video.js"></script>
+  <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="/lib/wow/wow.min.js"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="/contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="/js/main.js"></script>
   
 </body>
 </html>

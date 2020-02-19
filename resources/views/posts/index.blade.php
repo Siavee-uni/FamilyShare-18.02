@@ -6,17 +6,17 @@
 @section('content')
 <!-- Grid row -->
 
-<div class="container">
+<div class="container pt-3">
     <div class="card"style="margin-bottom: 70px;">
       <div class=""style="margin-bottom: 10px;margin-top: 10px;margin-left: 10px;">
-      <h4>click <a href="/posts/create" class="btn btn-outline-primary btn-rounded btn-md ml-2 mr-2">here</a> to add a new camera</h4>
-      <h4>to start the stream click on the play button</h4>
+      <h4>klick <a href="/posts/create" class="btn btn-outline-primary btn-rounded btn-md ml-2 mr-2">hier</a> um eine neue Kamera hinzuzufügen</h4>
+      <h4>Um den Stream zu starten klicke auf eins der Videos</h4>
+      </div>
     </div>
-  </div>
       <div class="row text-center">
   @forelse($posts as $post)
   <!-- Grid column -->
-        <div class="col-lg-4 col-md-12 mb-4">
+        <div class="col-lg-4 col-md-12 mb-4"> <!-- mb = margin bottom-->
             <h4>Stream: {{$post->title}}</h4>
   <!--Modal: Name-->
           <div class="modal fade" id="modal-{{$post->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -48,15 +48,15 @@
   </div>
   <!--Modal: Name-->
   
-  <a><img class="img-fluid z-depth-1" src="/png/videoplayer.jpg" alt="video"
+  <a><img class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
   data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
   
   </div>
   <!-- Grid column -->
   @empty 
-  <div class=""style="margin-left: 14px">
-     <h4> You have no posts at the moment. </h4>
-    </div>
+  <div class=""style="margin-left: 14px; background-color:rgba(43, 255, 6, 0.116)">
+     <h4> Momentan hast du keine Videos</h4>
+  </div>
   @endforelse
   </div>
 @endsection

@@ -29,7 +29,9 @@ class PostsController extends Controller
         // gibt alle post wieder:
         //$posts = Post::orderBy('created_at','desc')->paginate(10);
         //return view('posts.index')->with('posts', $posts);
-        $posts = auth()->user()->posts()->latest()->paginate(10);
+        $today = strToLower(now()->format('l'));
+        //$posts = auth()->user()->posts()->latest()->paginate(10);
+        $posts = auth()->user()->posts()->latest()->where($today,'<>',0)->paginate(10);
         return view('posts.index')->with('posts', $posts);
     }
     
@@ -54,6 +56,15 @@ class PostsController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
+            'monday',
+            'tuesday',
+            'wednesday',
+            'thursday',
+            'friday',
+            'saturday',
+            'sunday',
+            'timefrom',
+            'timeto'
             //'cover_image' => 'image|nullable|max:1999'
         ]);
 
@@ -77,6 +88,15 @@ class PostsController extends Controller
         $post = new Post;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        $post->monday = $request->has('monday') ? 1 : 0;
+        $post->tuesday = $request->has('tuesday') ? 2 : 0;
+        $post->wednesday = $request->has('wednesday') ? 3 : 0;
+        $post->thursday = $request->has('thursday') ? 4 : 0;
+        $post->friday = $request->has('friday') ? 5 : 0;
+        $post->saturday = $request->has('saturday') ? 6 : 0;
+        $post->sunday = $request->has('sunday') ? 7 : 0;
+        $post->timefrom = $request->timefrom;
+        $post->timeto= $request->timeto;
         $post->user_id = auth()->user()->id;
         //$post->cover_image = $fileNameToStore;
         $post->save();
@@ -188,4 +208,15 @@ class PostsController extends Controller
         $post->delete();
         return redirect('/posts')->with('success', 'Post Removed');
     }
+
+   /* public function convert(Request $id)
+    {
+    $post = Post::find($id);
+
+    if($post->monday = 1){
+        $mo = true;
+    } else{
+        $mo = false;
+    }
+    }*/
 }
