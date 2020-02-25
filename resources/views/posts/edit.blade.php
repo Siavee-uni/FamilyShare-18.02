@@ -6,86 +6,85 @@
 
 <div class="container pt-3">
   <div class="card">
-    <div class="row "style="margin-left:0px ;margin-top: 10px"> 
-    <h1>Edit Post</h1>
-    </div>
     {!! Form::open(['action' => ['PostsController@update', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-        <div class="form-group">
-            {{Form::label('title', 'Title')}}
-            {{Form::text('title', $post->title, ['class' => 'form-control', 'placeholder' => 'Title'])}}
-        </div>
-        <div class="form-group">
-            {{Form::label('body', 'Body')}}
-            {{Form::text('body', $post->body, ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'Body Text'])}}
-        </div>
-        <div class="row "style="margin-bottom: 20px;margin-top: 20px">  
-            <div class="form-check col-md-1">
-                {{Form::checkbox('monday', 'value')}}
-                <label class="form-check-label" for="defaultCheck1">
-                Mo
-                </label>
-              </div>
-    
-              <div class="form-check col-md-1">
-                {{Form::checkbox('tuesday', 'value')}}
-                <label class="form-check-label" for="defaultCheck1">
-                Tu 
-                </label>
-              </div>
-              
-              <div class="form-check col-md-1">
-                {{Form::checkbox('wednesday', 'value')}}
-                <label class="form-check-label" for="defaultCheck1">
-                We
-                </label>
-              </div>
-              <div class="form-check col-md-1">
-                {{Form::checkbox('thursday', 'value')}}
-                <label class="form-check-label" for="defaultCheck1">
-                Th
-                </label>
-              </div>
-              <div class="form-check col-md-1">
-                {{Form::checkbox('friday', 'value')}}
-                <label class="form-check-label" for="defaultCheck1">
-                Fr
-                </label>
-              </div>
-              <div class="form-check col-md-1">
-                {{Form::checkbox('saturday', 'value')}}
-                <label class="form-check-label" for="defaultCheck1">
-                Sa
-                </label>
-              </div>
-              <div class="form-check col-md-1">
-                {{Form::checkbox('sunday', 'value')}}
-                <label class="form-check-label" for="defaultCheck1">
-                Su
-                </label>
-              </div>
-        </div>
-        <!-- Time-->
-        <div class="row"style="margin-bottom: 20px;margin-top: 20px">    
-            <div class=""style="margin-left: 15px">
-              <p>from</p>
-            </div> 
-              <div class="col-md-1 ">
-                {{Form::selectRange('numberfrom', 0, 24)}}
-              </div>    
         
-            <div class=""style="margin-left: -20px">  
-            <p>to</p>
+          <div class="pt-3 pl-3 pb-3" style="background-color:#56b03f32"> 
+            <h4>Bearbeite deinen deine Daten</h4>
+           </div>
+           <div class=" pl-3 pt-3 pr-3">
+            {{Form::text('title', $post->title, ['class' => 'form-control', 'placeholder' => 'Title'])}}
+          </div>
+          <div class=" pl-3 pt-3 pr-3">
+            {{Form::text('body', $post->body, ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'Body Text'])}}
+          </div>
+
+          <div class="row pl-3 pt-3" style="margin-right: 400px;margin-top:px">
+            <div class="col">
+                <input type="checkbox" id="a1" name="monday">
+                <label for="sasquatch">Montag</label>
             </div>
-            <div class="col-md-1">
-              {{Form::selectRange('numberto', 0, 24)}}
-            </div>   
-            <div class=""style="margin-left: -20px">  
-                <p>Uhr</p>
-                </div> 
-      </div>
+              <div class="col-10">
+                <input type="checkbox" id="a2" name="friday">
+                <label for="sasquatch">Freitag</label>
+              </div>
+            </div>  
+      
+              <div class="row pl-3"style="margin-right: 400px;margin-top:px">
+                <div class="col">
+                <input type="checkbox" id="a3" name="tuesday">
+                <label for="sasquatch">Dienstag</label>
+              </div>
+              <div class="col-10">
+                <input type="checkbox" id="a4" name="saturday">
+                <label for="sasquatch">Samstag</label>
+              </div>
+            </div>
+      
+            <div class="row pl-3"style="margin-right: 400px;margin-top:px">
+              <div class="col">
+                <input type="checkbox" id="a5" name="wednesday">
+                <label for="sasquatch">Mittwoch</label>
+              </div>
+              <div class="col-10">
+                <input type="checkbox" id="a6" name="sunday">
+                <label for="sasquatch">Sonntag</label>
+              </div>
+           </div>
+      
+            <div class="row pl-3">
+              <div class="col">
+                <input type="checkbox" id="a7" name="thursday">
+                <label for="sasquatch">Donnerstag</label>
+              </div>
+            </div>
+          
+          <!-- Time-->
+          <div class="row pl-3"style="margin-bottom: 20px;margin-top: 20px">  
+              
+              <div class=""style="margin-left: 15px;margin-top: 5px; margin-right: 15px">
+                <p>von</p>
+              </div> 
+      
+              <input type="time" id="appt" name="timefrom" style="height:40px"
+               min="00:00" max="24:00">  
+              
+              <div class=""style="margin-left: 15px;margin-top: 5px; margin-right: 15px">
+              <p>bis</p>
+              </div>
+      
+      
+             <input type="time" id="appt" name="timeto"  style="height:40px"
+              min="00:00" max="24:00">
+      
+             <div class=""style="margin-left: 15px;margin-top:5px; margin-right: 15px">
+                  <p>Uhr</p>
+              </div> 
+        </div>
         
         {{Form::hidden('_method','PUT')}}
-        {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
+        <div class="pl-3 pb-3">
+        {{Form::submit('Submit', ['class'=>'btn'])}}
+      </div>
     {!! Form::close() !!}
     </div>   
   </div> 

@@ -1349,3 +1349,8 @@ body.mobile-nav-active #mobile-nav-toggle i {
 label {
   margin: .8rem 0;
 }
+
+.modal-dialog {
+  max-width: 1200px;
+  margin: 30px auto;
+}

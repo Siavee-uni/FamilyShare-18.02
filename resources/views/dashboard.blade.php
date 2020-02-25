@@ -2,15 +2,13 @@
 
 @section('content')
 
-<div class="container" style="padding-top:50px" >
+<div class="container pt-3" style="" >
     <div class="card" >
         <div class=""style="margin-bottom: 20px;">
-            <div class=""style="margin-top:10px;margin-left:10px;">
-                <h2>Dashboard</h2>
-            </div>  
-            <div class=""style="margin-bottom:;margin-left:12px;">
-                <h4>Alle deine Kameras im Überblick</h4>
-            </div>  
+            <div class="pt-3 pl-3 pb-3" style="background-color:#56b03f32"> 
+                <h2>Alle deine Videos im überblick</h2>
+               
+           </div>
             <div class="pt-4"style="margin-left:10px;">
                 <a href="/posts/create" class="btn">Neue kamera</a>
                 
