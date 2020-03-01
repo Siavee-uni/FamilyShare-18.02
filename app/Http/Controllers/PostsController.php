@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use App\Post;
-use DB;
+use Auth;
+use Illuminate\Http\Request;
 use Posts;
-Use Auth;
 
 class PostsController extends Controller
 {
@@ -18,7 +16,7 @@ class PostsController extends Controller
 
     public function index()
     {
-        
+
         //return Post::where('title', 'Post Two')->get();
         //$posts = DB::select('SELECT * FROM posts');
         //$posts = Post::orderBy('title','desc')->take(1)->get();
@@ -29,60 +27,54 @@ class PostsController extends Controller
         // gibt alle post wieder:
         //$posts = Post::orderBy('created_at','desc')->paginate(10);
         //return view('posts.index')->with('posts', $posts);
-        $today = strToLower(now()->format('l'));
         //$posts = auth()->user()->posts()->latest()->paginate(10);
+
+        /* $today = strToLower(now()->format('l'));
         $posts = auth()->user()->posts()->latest()->where($today,'<>',0)->paginate(10);
+        return view('posts.index')->with('posts', $posts);*/
+
+        $today = strToLower(now()->format('l'));
+
+        $posts = auth()->user()->posts()
+            ->latest()
+            ->where(function ($query) use ($today) {
+                $query->where($today, '<>', 0)
+                    ->orwhere('immer', '=', '1');
+            })
+            ->paginate(10);
+
         return view('posts.index')->with('posts', $posts);
+
     }
-    
+
     public function create()
     {
         return view('posts.create');
     }
-    
-    public function fullscreen()
-    {
-        return view('posts.fullscreen');
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
-            'monday',
-            'tuesday',
-            'wednesday',
-            'thursday',
-            'friday',
-            'saturday',
-            'sunday',
-            'timefrom',
-            'timeto'
             //'cover_image' => 'image|nullable|max:1999'
         ]);
 
         /* Handle File Upload
-        //if($request->hasFile('cover_image')){
-            // Get filename with the extension
-            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
-            // Get just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            // Get just ext
-            $extension = $request->file('cover_image')->getClientOriginalExtension();
-            // Filename to store
-            $fileNameToStore= $filename.'_'.time().'.'.$extension;
-            // Upload Image
-            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+        if($request->hasFile('cover_image')){
+        Get filename with the extension
+        $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+        Get just filename
+        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        Get just ext
+        $extension = $request->file('cover_image')->getClientOriginalExtension();
+        Filename to store
+        $fileNameToStore= $filename.'_'.time().'.'.$extension;
+        Upload Image
+        $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
         } else {
-      /      $fileNameToStore = 'noimage.jpg';
-       // }*/
+        $fileNameToStore = 'noimage.jpg';
+        }*/
 
         // Create Post
         $post = new Post;
@@ -95,8 +87,9 @@ class PostsController extends Controller
         $post->friday = $request->has('friday') ? 5 : 0;
         $post->saturday = $request->has('saturday') ? 6 : 0;
         $post->sunday = $request->has('sunday') ? 7 : 0;
-        $post->timefrom = $request->timefrom;
-        $post->timeto= $request->timeto;
+        $post->immer = $request->has('immer') ? true : false;
+        $post->timefrom = $request->input('timefrom');
+        $post->timeto = $request->input('timeto'); // oder $request->timeto; ?
         $post->user_id = auth()->user()->id;
         //$post->cover_image = $fileNameToStore;
         $post->save();
@@ -104,119 +97,84 @@ class PostsController extends Controller
         return redirect('/posts')->with('success', 'Post Created');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $post = Post::find($id);
         return view('posts.show')->with('post', $post);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $post = Post::find($id);
-        
-        //Check if post exists before deleting
-        if (!isset($post)){
+
+        //Check if post exists before edit
+        if (!isset($post)) {
             return redirect('/posts')->with('error', 'No Post Found');
         }
 
         // Check for correct user
-        if(auth()->user()->id !==$post->user_id){
+        if (auth()->user()->id !== $post->user_id) {
             return redirect('/posts')->with('error', 'Unauthorized Page');
         }
 
         return view('posts.edit')->with('post', $post);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $this->validate($request, [
             'title' => 'required',
-            'body' => 'required'
+            'body' => 'required',
         ]);
-		$post = Post::find($id);
-         // Handle File Upload
+        $post = Post::find($id);
+        // Handle File Upload
         /*if($request->hasFile('cover_image')){
-            // Get filename with the extension
-            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
-            // Get just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            // Get just ext
-            $extension = $request->file('cover_image')->getClientOriginalExtension();
-            // Filename to store
-            $fileNameToStore= $filename.'_'.time().'.'.$extension;
-            // Upload Image
-            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
-            // Delete file if exists
-            Storage::delete('public/cover_images/'.$post->cover_image);
+        // Get filename with the extension
+        $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+        // Get just filename
+        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        // Get just ext
+        $extension = $request->file('cover_image')->getClientOriginalExtension();
+        // Filename to store
+        $fileNameToStore= $filename.'_'.time().'.'.$extension;
+        // Upload Image
+        $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+        // Delete file if exists
+        Storage::delete('public/cover_images/'.$post->cover_image);
         } */
 
         // Update Post
         $post->title = $request->input('title');
         $post->body = $request->input('body');
-        if($request->hasFile('cover_image')){
-            $post->cover_image = $fileNameToStore;
-        }
+        /*if($request->hasFile('cover_image')){
+        $post->cover_image = $fileNameToStore;
+        }*/
         $post->save();
 
         return redirect('/posts')->with('success', 'Post Updated');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $post = Post::find($id);
-        
+
         //Check if post exists before deleting
-        if (!isset($post)){
-            return redirect('/posts')->with('error', 'No Post Found');
+        if (!isset($post)) {
+            return redirect('/dashboard')->with('error', 'No Post Found');
         }
 
         // Check for correct user
-        if(auth()->user()->id !==$post->user_id){
-            return redirect('/posts')->with('error', 'Unauthorized Page');
+        if (auth()->user()->id !== $post->user_id) {
+            return redirect('/dashboard')->with('error', 'Unauthorized Page');
         }
 
-        if($post->cover_image != 'noimage.jpg'){
-            // Delete Image
-            Storage::delete('public/cover_images/'.$post->cover_image);
-        }
-        
+        /*if($post->cover_image != 'noimage.jpg'){
+        // Delete Image
+        Storage::delete('public/cover_images/'.$post->cover_image);
+        }*/
+
         $post->delete();
-        return redirect('/posts')->with('success', 'Post Removed');
+        return redirect('/dashboard');
     }
 
-   /* public function convert(Request $id)
-    {
-    $post = Post::find($id);
-
-    if($post->monday = 1){
-        $mo = true;
-    } else{
-        $mo = false;
-    }
-    }*/
 }

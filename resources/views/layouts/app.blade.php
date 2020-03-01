@@ -58,8 +58,8 @@
                             <h5><a class="nav-link pl-2 pt-2" href="/#contact">Kontakt</a></h5>
     
                         @else   
-                            <h5><a class="nav-link pl-2 pt-2" href="posts">Videos</a></h5>
-                            <h5><a class="nav-link pl-2 pt-2" href="/simple">SimpleMode</a></h5>
+                            <h5><a class="nav-link pl-2 pt-2" href="{{ url('/posts') }}">Videos</a></h5>
+                            <h5><a class="nav-link pl-2 pt-2" href="{{ url('/simple') }}">SimpleMode</a></h5>
                             
                         @endguest 
                     </ul>

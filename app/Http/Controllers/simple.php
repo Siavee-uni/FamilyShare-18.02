@@ -1,14 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
-use Illuminate\Support\Facades\Storage;
-use App\Post;
-use DB;
-use Posts;
-Use Auth;
 
-use Illuminate\Http\Request;
+use App\User;
+use Auth;
+use Posts;
 
 class simple extends Controller
 {
@@ -17,12 +13,18 @@ class simple extends Controller
         $this->middleware('auth');
     }
 
-   
     public function index()
     {
         $today = strToLower(now()->format('l'));
-        
-        $posts = auth()->user()->posts()->latest()->where($today,'<>',0)->paginate(10);
+
+        $posts = auth()->user()->posts()
+            ->latest()
+            ->where(function ($query) use ($today) {
+                $query->where($today, '<>', 0)
+                    ->orwhere('immer', '=', '1');
+            })
+            ->paginate(10);
+
         return view('simple')->with('posts', $posts);
     }
 }

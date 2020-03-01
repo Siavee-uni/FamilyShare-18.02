@@ -27,6 +27,7 @@ class CreatePostsTable extends Migration
             $table->boolean('sunday')->default(0);
             $table->time('timefrom')->nullable();
             $table->time('timeto')->nullable();
+            $table->boolean('immer')->default(false);
             $table->timestamps();
         });
     }
