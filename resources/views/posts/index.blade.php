@@ -16,6 +16,7 @@
   <!-- Grid column -->
         <div class="col-lg-4 col-md-12 mb-4"> <!-- mb = margin bottom-->
             <h4>Stream: {{$post->title}}</h4>
+            <h4>Verfügbar von {{$post->timefrom}} bis {{$post->timeto}}</h4>
   <!--Modal: Name-->
           <div class="modal fade" id="modal-{{$post->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document"><!-- modal-dialog ist für die größe zuständig/styling-->
@@ -49,23 +50,16 @@
   
   </div>
   <!-- Grid column -->
-  @empty 
-  <div class=""style="margin-left: 14px; background-color:rgba(43, 255, 6, 0.116)">
-     <h4> Momentan hast du keine Videos</h4>
-  </div>
-
-  @endforelse
-  </div>
-
-
   <?php
 
   $date = date("Y-m-d");
-  
+
   ?>
   <script>
 
     function myFunction() {
+         var test = "{{$post->title}}"; 
+         var test2 = "{{ $post->timeto }}"; 
          
           // varbialen aus der datenbank.
           var date = "<?php echo $date?>";
@@ -80,7 +74,7 @@
           var nowDate = new Date();
     
           // gib alle daten aus zum testen
-          alert("start datum = " + date  + " end datum = " + endDate + "time now =" + nowDate);
+          alert("start datum = " + test  + " end datum = " + test2 + "time now =" + nowDate);
           
           // übrige Zeit zum schauen des videos
           var date_diff = endDate - nowDate;
@@ -105,4 +99,13 @@
         }
         
       </script>
+
+  @empty 
+  <div class=""style="margin-left: 14px; background-color:rgba(43, 255, 6, 0.116)">
+     <h4> Momentan hast du keine Videos</h4>
+  </div>
+
+  @endforelse
+  </div>
+  
 @endsection
