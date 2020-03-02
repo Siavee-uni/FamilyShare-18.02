@@ -44,7 +44,7 @@
   </div>
   <!--Modal: Name-->
   
-  <a><img class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
+  <a><img onclick="myFunction()" id="datapic"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
   data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
   
   </div>
@@ -55,4 +55,46 @@
   </div>
   @endforelse
   </div>
+
+  <script>
+
+    function myFunction() {
+         
+          // varbialen aus der datenbank.
+          var date = "2020-03-02"
+    
+          const ts = date + " 10:00:00"; 
+          const startDate = new Date(ts);
+    
+          const te = date + " 22:05:00"; 
+          const endDate = new Date(te);
+    
+          var nowDate = new Date();
+    
+          // gib alle daten aus zum testen
+          alert("start datum = " + startDate + " end datum = " + endDate + "time now =" + nowDate);
+          
+          // übrige Zeit zum schauen des videos
+          var date_diff = endDate - nowDate;
+    
+        
+          // schaue ob aktuelle zeit im timslot liegt
+          if (nowDate >= startDate && nowDate < endDate) {
+              var close = function() {
+                  $("#modal-{{$post->id}}").modal("hide");
+              }
+              alert(""+ date_diff + " bis zum schließen");
+              setTimeout(close, date_diff);
+              document.getElementById("datapic").addAttribute("data-toggle");
+             
+    
+          } else {
+    
+    
+              document.getElementById("datapic").removeAttribute("data-toggle");
+              alert("opens in " + timestarts + " seconds");
+          }
+        }
+        
+      </script>
 @endsection
