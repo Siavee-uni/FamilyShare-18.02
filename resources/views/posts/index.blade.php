@@ -53,26 +53,34 @@
   <div class=""style="margin-left: 14px; background-color:rgba(43, 255, 6, 0.116)">
      <h4> Momentan hast du keine Videos</h4>
   </div>
+
   @endforelse
   </div>
 
+
+  <?php
+
+  $date = date("Y-m-d");
+  
+  ?>
   <script>
 
     function myFunction() {
          
           // varbialen aus der datenbank.
-          var date = "2020-03-02"
-    
-          const ts = date + " 10:00:00"; 
+          var date = "<?php echo $date?>";
+          
+         // daten aus der datenbank
+          const ts = date + " 20:00:00"; 
           const startDate = new Date(ts);
     
           const te = date + " 22:05:00"; 
           const endDate = new Date(te);
-    
+          // akuelle datum
           var nowDate = new Date();
     
           // gib alle daten aus zum testen
-          alert("start datum = " + startDate + " end datum = " + endDate + "time now =" + nowDate);
+          alert("start datum = " + date  + " end datum = " + endDate + "time now =" + nowDate);
           
           // übrige Zeit zum schauen des videos
           var date_diff = endDate - nowDate;
