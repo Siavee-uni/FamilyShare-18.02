@@ -12,6 +12,7 @@
       </div>
     </div>
       <div class="row text-center">
+
   @forelse($posts as $post)
   <!-- Grid column -->
         <div class="col-lg-4 col-md-12 mb-4"> <!-- mb = margin bottom-->
@@ -45,60 +46,52 @@
   </div>
   <!--Modal: Name-->
   
-  <a><img onclick="myFunction()" id="datapic"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
+  <a><img onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
   data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
   
   </div>
   <!-- Grid column -->
+
   <?php
-
-  $date = date("Y-m-d");
-
+ 
+  $timenow = date('H')+1;
+  
+  $timefrom = $post->timefrom;
+  $timeto = $post->timeto;
+  
+  
+ 
+ 
   ?>
   <script>
-
-    function myFunction() {
-         var test = "{{$post->title}}"; 
-         var test2 = "{{ $post->timeto }}"; 
-         
-          // varbialen aus der datenbank.
-          var date = "<?php echo $date?>";
-          
-         // daten aus der datenbank
-          const ts = date + " 20:00:00"; 
-          const startDate = new Date(ts);
-    
-          const te = date + " 22:05:00"; 
-          const endDate = new Date(te);
-          // akuelle datum
-          var nowDate = new Date();
-    
-          // gib alle daten aus zum testen
-          alert("start datum = " + test  + " end datum = " + test2 + "time now =" + nowDate);
-          
-          // übrige Zeit zum schauen des videos
-          var date_diff = endDate - nowDate;
-    
         
-          // schaue ob aktuelle zeit im timslot liegt
-          if (nowDate >= startDate && nowDate < endDate) {
+        
+          
+        function test() {
+          var time = <?php echo $timenow ?>;
+          var timefrom = <?php echo $timefrom ?>; 
+          var timeto = <?php echo $timeto ?>; 
+          var timedif = timeto - time;
+
+
+          if (time >= timefrom && time < timeto) {
               var close = function() {
                   $("#modal-{{$post->id}}").modal("hide");
               }
-              alert(""+ date_diff + " bis zum schließen");
-              setTimeout(close, date_diff);
-              document.getElementById("datapic").addAttribute("data-toggle");
-             
+              setTimeout(close, timedif);
+              var linka = document.getElementById("{{$post->id}}");
+              linka.element.setAttribute("data-toggle");
+              alert("test");
+             } 
+             else 
+             {
     
-          } else {
     
-    
-              document.getElementById("datapic").removeAttribute("data-toggle");
-              alert("opens in " + timestarts + " seconds");
+              document.getElementById("{{$post->id}}").removeAttribute("data-toggle");
+              alert("Sichbar um " + timeto + " Uhr");
           }
         }
-        
-      </script>
+  </script>
 
   @empty 
   <div class=""style="margin-left: 14px; background-color:rgba(43, 255, 6, 0.116)">
