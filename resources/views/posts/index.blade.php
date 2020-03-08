@@ -8,6 +8,7 @@
     <div class="card"style="margin-bottom: 70px;">
       <div class="pt-3 pl-3 pb-3"style="">
       <h4>klick <a href="/posts/create" class="btn btn-outline-primary btn-rounded btn-md ml-2 mr-2">hier</a> um eine neue Kamera hinzuzufügen</h4>
+      
       <h4>Um den Stream zu starten klicke auf eins der Videos</h4>
       </div>
     </div>
@@ -16,46 +17,68 @@
   @forelse($posts as $post)
   <!-- Grid column -->
         <div class="col-lg-4 col-md-12 mb-4"> <!-- mb = margin bottom-->
-            <h4>Stream: {{$post->title}}</h4>
+            <h4>Ort: {{$post->title}}</h4>
+            @if (empty($post->timefrom))
+            <h4>keine Zeit festgelegt</h4>
+            @else 
             <h4>Verfügbar von {{$post->timefrom}} bis {{$post->timeto}}</h4>
+            @endif
   <!--Modal: Name-->
-          <div class="modal fade" id="modal-{{$post->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document"><!-- modal-dialog ist für die größe zuständig/styling-->
-  
-  <!--Content-->
-              <div class="modal-content">
-  
-  <!--Body-->
-                <div class="modal-body mb-0 p-0" style="">
-  
-                    <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-                      <iframe class="embed-responsive-item" src="{{$post->body}}" allowfullscreen></iframe>
+          @php
+          $timenow = date('H.m')+1;  
+          @endphp
+ 
+                  <div class="modal fade" id="modal-{{$post->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document"><!-- modal-dialog ist für die größe zuständig/styling-->
+                      <div class="modal-content">
+                        <div class="modal-body mb-0 p-0" style="">
+                            <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                              <iframe class="embed-responsive-item" src="{{$post->body}}" allowfullscreen></iframe>
+                            </div>
+                          <div class="modal-footer justify-content-center">
+                            <h4 id="modal-{{$post->id}}" class="mr-4">{{$post->title}}</h4>
+                            <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                     </div>
                     </div>
-  
-                 
-  
-      <!--Footer-->
-                  <div class="modal-footer justify-content-center">
-                    <h4 id="modal-{{$post->id}}" class="mr-4">{{$post->title}}</h4>
-                    <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
-                  </div>
-                </div>
-            </div>
-  <!--/.Content-->
+                   </div>
+           
+                    <a><img onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
+                    data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
+               
+           
+          
+      <div class="row pt-2">
+        <div class="col text-left">
+          <div class="row">
+            <h5 class="pl-3">Status:</h5>
+            @if ($post->online === 1)
+            <h5 class="pl-2">Online</h5> <img id="online" class="pl-2" style="height:15px" src="/png/online.png" alt="">
+            @else
+            <h5 class="pl-2">Offline</h5><img id="offline" class="pl-2" style="height:15px " src="/png/offline.png" alt=""> 
+            @endif
           </div>
+      </div>
+        <div class="col text-right">
+          @if ($post->online === 0)
+          <form class="" action="PostsController@store" method="post">
+            <button class="" style="height: 25px" type="submit" form="form1" value="Submit"><h5>Stream freischalten</h5></button>
+              <input value="1" style="visibility: hidden">
+          </form>
+          @else
+          @endif
+        </div>
+      </div>
   </div>
-  <!--Modal: Name-->
-  
-  <a><img onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
-  data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
-  
-  </div>
+ 
+ 
   <!-- Grid column -->
 
   <?php
  
-  $timenow = date('H')+1;
-  
+  $timenow = date('H.m')+1;
+ 
   $timefrom = $post->timefrom;
   $timeto = $post->timeto;
   
@@ -71,24 +94,21 @@
           var time = <?php echo $timenow ?>;
           var timefrom = <?php echo $timefrom ?>; 
           var timeto = <?php echo $timeto ?>; 
-          var timedif = timeto - time;
+          var timedif = <?php echo $timeto ?> - <?php echo $timenow ?>;
+          
 
-
-          if (time >= timefrom && time < timeto) {
+          if (time >= timefrom && time <= timeto) {
               var close = function() {
                   $("#modal-{{$post->id}}").modal("hide");
               }
-              setTimeout(close, timedif);
-              var linka = document.getElementById("{{$post->id}}");
-              linka.element.setAttribute("data-toggle");
-              alert("test");
+             setTimeout(close, timedif);
+             // var linka = document.getElementById("{{$post->id}}");
+             // linka.element.setAttribute("data-toggle");
              } 
              else 
              {
-    
-    
               document.getElementById("{{$post->id}}").removeAttribute("data-toggle");
-              alert("Sichbar um " + timeto + " Uhr");
+              alert("Sichbar um " + "<?php echo $timefrom ?>" + " Uhr");
           }
         }
   </script>

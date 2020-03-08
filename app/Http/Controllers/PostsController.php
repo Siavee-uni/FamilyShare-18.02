@@ -52,14 +52,20 @@ class PostsController extends Controller
         return view('posts.create');
     }
 
+
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'body' => 'required',
-            //'cover_image' => 'image|nullable|max:1999'
-        ]);
 
+        
+            $this->validate($request, [
+                'title' => 'required',
+                'body' => 'required',
+                
+                //'cover_image' => 'image|nullable|max:1999'
+            ]);
+        
+            
+        
         /* Handle File Upload
         if($request->hasFile('cover_image')){
         Get filename with the extension
@@ -75,7 +81,15 @@ class PostsController extends Controller
         } else {
         $fileNameToStore = 'noimage.jpg';
         }*/
-
+        // convert time to int
+        if (empty($request->get('timefrom')) || empty($request->get('timefrom'))) {
+            $timefrom = $request->get('timefrom');
+            $timeto = $request->get('timeto');
+        } else{
+            $timefrom = str_replace(":", ".",$request->get('timefrom'));
+            $timeto = str_replace(":", ".",$request->get('timeto'));
+        }
+        
         // Create Post
         $post = new Post;
         $post->title = $request->input('title');
@@ -88,8 +102,10 @@ class PostsController extends Controller
         $post->saturday = $request->has('saturday') ? 6 : 0;
         $post->sunday = $request->has('sunday') ? 7 : 0;
         $post->immer = $request->has('immer') ? true : false;
-        $post->timefrom = $request->input('timefrom');
-        $post->timeto = $request->input('timeto'); // oder $request->timeto; ?
+        $post->timefrom = $timefrom;
+        $post->timeto = $timeto;
+        $post->anfrage = $request->has('') ? true : false;
+        $post->online = $request->has('') ? true : false;
         $post->user_id = auth()->user()->id;
         //$post->cover_image = $fileNameToStore;
         $post->save();

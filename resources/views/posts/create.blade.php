@@ -9,6 +9,15 @@
          <h4>Füge hier einen Titel und den Streaminglink zur Ip-Cam hinzu</h4>
         
     </div>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 
     {!! Form::open(['action' => 'PostsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     @csrf
@@ -98,7 +107,7 @@
           <p>von</p>
         </div> 
 
-        <input type="number" id="" name="timefrom" style="height:30px"
+        <input type="time" id="" name="timefrom" style="height:30px"
          min="0" max="24" placeholder="15">  
         
         <div class=""style="margin-left: 15px;margin-top: 2px; margin-right: 15px">
@@ -106,7 +115,7 @@
         </div>
 
 
-       <input type="number" id="" name="timeto"  style="height:30px"
+       <input type="time" id="" name="timeto"  style="height:30px"
         min="0" max="24" placeholder="20">
 
        <div class=""style="margin-left: 15px;margin-top:2px; margin-right: 15px">

@@ -22,15 +22,38 @@
             @else
             
                     <table class="table table-striped ">
+                        <thead>
+                            <tr>
+                              <th scope="col"><h5 class="pl-3">#</h5>  </th>
+                              <th scope="col"><h5 class="">Status:</h5></th>
+                              <th scope="col"><h5 class="">Anfragen</h5></th>
+                              <th scope="col"><h5 class="pl-3">#</h5></th>
+                              <th scope="col"><h5 class="pl-3">Ort</h5></th>
+                              <th scope="col"><h5 class="pl-3">#</h5></th>
+                              <th scope="col"><h5 class="pl-3">#</h5></th>
+                            </tr>
+                          </thead>
+                          <tbody>
                             @foreach($posts as $post)
                                 <tr>
                                     <td><img style="width:40%" class="" src="/png/videoplayer.jpg">
                                     </td>
-                                    
-                                    <td> <div style="margin-top: 5px"><h4>Titel: {{$post->title}}</h4></div></td>
+                                    <td>
+                                        @if ($post->online === 1)<img style="height:20px" class="" src="/png/online.png">
+                                        @else  <img style="height:20px" class="" src="/png/offline.png">
+                                        @endif
+                                    </td>
+                                    <td>@if ($post->anfrage === 0) <h4>keine</h4>
+                                        @else <h4 style="color:green">vorhanden</h4>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($post->online === 0)<button class="btn-outline-primary">Stream aktivieren</button> <br> <br>
+                                        @else<button class="btn-outline-primary">Stream deaktivieren</button> </td>
+                                        @endif
+                                    <td> <div style="margin-top: 5px"><h4>{{$post->title}}</h4></div></td>
                                     
                                     <td><a href="/posts/{{$post->id}}/edit" class="btn btn-outline-primary btn-rounded btn-md ml-4">Edit</a></td>
-                                    <td><a href="" class="btn btn-outline-primary btn-rounded btn-md ml-4">Rules</a></td>
                                     <td>
                                         {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
                                             {{Form::hidden('_method', 'DELETE')}}
@@ -39,6 +62,7 @@
                                     </td>
                                 </tr>
                             @endforeach
+                        </tbody>
                     </table>
                             @endif
             
