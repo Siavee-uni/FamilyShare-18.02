@@ -62,10 +62,14 @@
       </div>
         <div class="col text-right">
           @if ($post->online === 0)
-          <form class="" action="PostsController@store" method="post">
-            <button class="" style="height: 25px" type="submit" form="form1" value="Submit"><h5>Stream freischalten</h5></button>
-              <input value="1" style="visibility: hidden">
-          </form>
+
+              {!! Form::open(['action' => ['PostsController@anfrage', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+              <button class="" style="height: 25px" type="submit"><h5>Stream freischalten</h5></button>
+              <input name="anfrage" value="1" style="visibility: hidden">
+              {!! Form::close() !!}
+        
+          @elseif ($post->online === 1 && $post->anfrage === 1)
+             <button class="" style="height: 25px" type="submit" disabled><h5>anfrage versendet</h5></button>
           @else
           @endif
         </div>

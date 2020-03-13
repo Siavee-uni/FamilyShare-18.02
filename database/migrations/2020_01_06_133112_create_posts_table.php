@@ -29,7 +29,7 @@ class CreatePostsTable extends Migration
             $table->decimal('timeto')->nullable();
             $table->boolean('immer')->default(false);
             $table->boolean('anfrage')->default(false);
-            $table->boolean('online')->default(false);
+            $table->boolean('online')->default(true);
             $table->timestamps();
         });
     }

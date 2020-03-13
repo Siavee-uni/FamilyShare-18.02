@@ -15,7 +15,10 @@ Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 Route::get('/simple', 'simple@index');
 
-Route::resource('posts', 'PostsController');
+Route::resource('posts', 'PostsController'); //CRUD" routes to a controller with a single line of code.
+
+Route::post('/online/{id}', 'PostsController@online');
+Route::post('/anfrage/{id}', 'PostsController@anfrage');
 
 
 Auth::routes();

@@ -90,6 +90,7 @@ class PostsController extends Controller
             $timeto = str_replace(":", ".",$request->get('timeto'));
         }
         
+        
         // Create Post
         $post = new Post;
         $post->title = $request->input('title');
@@ -104,8 +105,8 @@ class PostsController extends Controller
         $post->immer = $request->has('immer') ? true : false;
         $post->timefrom = $timefrom;
         $post->timeto = $timeto;
-        $post->anfrage = $request->has('') ? true : false;
-        $post->online = $request->has('') ? true : false;
+        //$post->anfrage = $request->has('') ? true : false;
+        //$post->online = $request->has('') ? false : true;
         $post->user_id = auth()->user()->id;
         //$post->cover_image = $fileNameToStore;
         $post->save();
@@ -158,7 +159,6 @@ class PostsController extends Controller
         // Delete file if exists
         Storage::delete('public/cover_images/'.$post->cover_image);
         } */
-
         // Update Post
         $post->title = $request->input('title');
         $post->body = $request->input('body');
@@ -166,8 +166,30 @@ class PostsController extends Controller
         $post->cover_image = $fileNameToStore;
         }*/
         $post->save();
-
+        
         return redirect('/posts')->with('success', 'Post Updated');
+    }
+
+    public function online(Request $request, $id)
+    {
+        $post = Post::find($id);
+    
+        $post->online = $request->input('online');
+        $post->anfrage = "0";
+        $post->save();
+        
+        return redirect('/posts')->with('success', 'Post Updated');
+    }
+
+    public function anfrage(Request $request, $id)
+    {
+        $post = Post::find($id);
+    
+        $post->anfrage = $request->input('anfrage');
+
+        $post->save();
+        
+        return redirect('/posts');
     }
 
     public function destroy($id)

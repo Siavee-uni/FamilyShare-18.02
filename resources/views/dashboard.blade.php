@@ -48,8 +48,19 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @if ($post->online === 0)<button class="btn-outline-primary">Stream aktivieren</button> <br> <br>
-                                        @else<button class="btn-outline-primary">Stream deaktivieren</button> </td>
+                                        @if ($post->online === 0)
+                                        {!! Form::open(['action' => ['PostsController@online', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+                                           
+                                            <input name="online" value="1" type='hidden'>
+                                            <button type="submit" class="btn-outline-primary">Stream aktivieren</button> <br> <br>
+                                        
+                                        {!! Form::close() !!}
+
+                                        @else
+                                        {!! Form::open(['action' => ['PostsController@online', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+                                        <input name="online" value="0" type='hidden'>
+                                        <button type="submit" class="btn-outline-primary">Stream deaktivieren</button> </td>
+                                        {!! Form::close() !!}
                                         @endif
                                     <td> <div style="margin-top: 5px"><h4>{{$post->title}}</h4></div></td>
                                     
