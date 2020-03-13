@@ -27,7 +27,7 @@
           @php
           $timenow = date('H.m')+1;  
           @endphp
- 
+          @if ($post->online === 1)
                   <div class="modal fade" id="modal-{{$post->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document"><!-- modal-dialog ist für die größe zuständig/styling-->
                       <div class="modal-content">
@@ -46,8 +46,10 @@
            
                     <a><img onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
                     data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
-               
-           
+            @else   
+                  <a><img onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
+                  data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
+           @endif
           
       <div class="row pt-2">
         <div class="col text-left">
@@ -68,7 +70,7 @@
               <input name="anfrage" value="1" style="visibility: hidden">
               {!! Form::close() !!}
         
-          @elseif ($post->online === 1 && $post->anfrage === 1)
+          @elseif ($post->online === 0 && $post->anfrage === 1)
              <button class="" style="height: 25px" type="submit" disabled><h5>anfrage versendet</h5></button>
           @else
           @endif

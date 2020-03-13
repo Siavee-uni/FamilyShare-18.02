@@ -24,42 +24,42 @@
                     <table class="table table-striped ">
                         <thead>
                             <tr>
-                              <th scope="col"><h5 class="pl-3">#</h5>  </th>
+                              <th scope="col"><h5 class="">#</h5>  </th>
                               <th scope="col"><h5 class="">Status:</h5></th>
-                              <th scope="col"><h5 class="">Anfragen</h5></th>
-                              <th scope="col"><h5 class="pl-3">#</h5></th>
-                              <th scope="col"><h5 class="pl-3">Ort</h5></th>
-                              <th scope="col"><h5 class="pl-3">#</h5></th>
-                              <th scope="col"><h5 class="pl-3">#</h5></th>
+                              <th scope="col"><h5 class="text-center">Anfragen</h5></th>
+                              <th scope="col"><h5 class="text-center">#</h5></th>
+                              <th scope="col"><h5 class="">Ort</h5></th>
+                              <th scope="col"><h5 class="text-center">#</h5></th>
+                              <th scope="col"><h5 class="text-center">#</h5></th>
                             </tr>
                           </thead>
                           <tbody>
                             @foreach($posts as $post)
                                 <tr>
-                                    <td><img style="width:40%" class="" src="/png/videoplayer.jpg">
+                                    <td><img style=" width:40%" class="" src="/png/videoplayer.jpg">
                                     </td>
                                     <td>
-                                        @if ($post->online === 1)<img style="height:20px" class="" src="/png/online.png">
-                                        @else  <img style="height:20px" class="" src="/png/offline.png">
+                                        @if ($post->online === 1)<div class="text-center"><img style="height:20px" class="" src="/png/online.png"></div>
+                                        @else  <div class="text-center"><img style="height:20px" class="" src="/png/offline.png"></div>
                                         @endif
                                     </td>
-                                    <td>@if ($post->anfrage === 0) <h4>keine</h4>
-                                        @else <h4 style="color:green">vorhanden</h4>
+                                    <td>@if ($post->anfrage === 0) <h4 class="text-center">keine</h4>
+                                        @else <h4 class="text-center" style="color:green">vorhanden</h4>
                                         @endif
                                     </td>
                                     <td>
                                         @if ($post->online === 0)
                                         {!! Form::open(['action' => ['PostsController@online', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-                                           
+                                            <div class="text-center">
                                             <input name="online" value="1" type='hidden'>
-                                            <button type="submit" class="btn-outline-primary">Stream aktivieren</button> <br> <br>
-                                        
+                                            <button type="submit" class="btn btn-2 btn-sep">Stream aktivieren</button> <br> <br>
+                                        </div>
                                         {!! Form::close() !!}
 
                                         @else
                                         {!! Form::open(['action' => ['PostsController@online', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                                         <input name="online" value="0" type='hidden'>
-                                        <button type="submit" class="btn-outline-primary">Stream deaktivieren</button> </td>
+                                        <button type="submit" style="background-color:red" class="btn btn-3 btn-sep">Stream deaktivieren</button> </td>
                                         {!! Form::close() !!}
                                         @endif
                                     <td> <div style="margin-top: 5px"><h4>{{$post->title}}</h4></div></td>

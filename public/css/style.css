@@ -1354,3 +1354,26 @@ label {
   max-width: 1200px;
   margin: 30px auto;
 }
+
+
+.btn-3 {
+	background: #e73c3cbd !important;
+  color: rgb(0, 0, 0);
+  
+}
+.btn-3:hover {
+  background: #c0392b;
+  color: white;
+}
+
+.btn-sep {
+	padding: 15px 15px 15px 15px;
+}
+.btn-2:hover {
+  background: #27ae60;
+  color: white;
+}
+.btn-2 {
+	background: #2ecc70bc;
+	color: rgb(0, 0, 0);
+}
