@@ -89,6 +89,7 @@ span {
   -o-transition: all 0.5s ease-in-out 0s;
   -webkit-transition: all 0.5s ease-in-out 0s;
   transition: all 0.5s ease-in-out 0s;
+  padding: 15px 15px 15px 15px;
 }
 
 .btn:hover {
@@ -1357,8 +1358,10 @@ label {
 
 
 .btn-3 {
-	background: #e73c3cbd !important;
+	background: rgba(255, 0, 0, 0.774) !important;
   color: rgb(0, 0, 0);
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 20px;
   
 }
 .btn-3:hover {
@@ -1370,10 +1373,15 @@ label {
 	padding: 15px 15px 15px 15px;
 }
 .btn-2:hover {
-  background: #27ae60;
+  background: #27ae5f;
   color: white;
 }
 .btn-2 {
-	background: #2ecc70bc;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 20px;
+	background: rgba(86, 176, 63, 0.692);
 	color: rgb(0, 0, 0);
 }
+.w3-button{color: rgb(255, 255, 255); background-color:#009688!important;border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
+.w3-circle{border-radius:50%}
+.w3-button:hover{background-color:#0096879d!important}

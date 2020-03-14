@@ -5,18 +5,20 @@
 <div class="container pt-3" style="" >
     <div class="card" >
         <div class=""style="margin-bottom: 20px;">
-            <div class="pt-3 pl-3 pb-3" style="background-color:#56b03f32"> 
-                <h2>Alle deine Videos im überblick</h2>
+            <div class="pt-3 pl-3 pb-3" style="background-color:#aeb3af24"> 
+                <h2>Alle deine Kameras im überblick</h2>
                
            </div>
-            <div class="pt-4"style="margin-left:10px;">
-                <a href="/posts/create" class="btn">Neue kamera</a>
+           <div class="pt-4 "style="margin-left:10px;">
+            <h4><a href="/posts/create" class="w3-button w3-circle w3-teal" style="background-color:rgba(86, 176, 63, 0.692);">+</a>   neue Kamera</h4>   
+            
+                    
                 
-            </div>
+           </div>
         </div>
          
         @if(empty($posts))
-        <div class=""style="margin-bottom:">
+        <div class=""style="margin-bottom: ">
             <p>You have no cameras</p>
         </div>         
             @else
