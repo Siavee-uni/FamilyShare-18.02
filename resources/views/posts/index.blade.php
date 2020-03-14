@@ -43,9 +43,13 @@
                      </div>
                     </div>
                    </div>
-           
-                    <a><img onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
-                    data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
+                    @if ($post->image ==="noimage.jpg")
+                        <a><img onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
+                          data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
+                    @else
+                        <a><img style="width:100%" onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="./storage/uploads/{{$post->image}}" alt="video"
+                        data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
+                    @endif
             @else   
                   <a><img onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
                   data-toggle="modal" data-target="#modal-{{$post->id}}"></a>

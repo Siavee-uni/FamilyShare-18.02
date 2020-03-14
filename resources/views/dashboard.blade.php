@@ -24,7 +24,7 @@
                     <table class="table table-striped ">
                         <thead>
                             <tr>
-                              <th scope="col"><h5 class="">#</h5>  </th>
+                              <th scope="col"><h5 class="">Video</h5>  </th>
                               <th scope="col"><h5 class="">Status:</h5></th>
                               <th scope="col"><h5 class="text-center">Anfragen</h5></th>
                               <th scope="col"><h5 class="text-center">#</h5></th>
@@ -35,8 +35,11 @@
                           </thead>
                           <tbody>
                             @foreach($posts as $post)
-                                <tr>
-                                    <td><img style=" width:40%" class="" src="/png/videoplayer.jpg">
+                                <tr> 
+                                    <td>    @if($post->image ==="noimage.jpg")
+                                                <img style=" width:30%" class="" src="/png/videoplayer.jpg">
+                                            @else  <img style="width:30%; height:57px" class="" src="./storage/uploads/{{$post->image}}">  
+                                            @endif
                                     </td>
                                     <td>
                                         @if ($post->online === 1)<div class="text-center"><img style="height:20px" class="" src="/png/online.png"></div>
@@ -68,7 +71,7 @@
                                     <td>
                                         {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
                                             {{Form::hidden('_method', 'DELETE')}}
-                                            {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+                                            {{Form::submit('Löschen', ['class' => 'btn btn-danger'])}}
                                         {!!Form::close()!!}
                                     </td>
                                 </tr>

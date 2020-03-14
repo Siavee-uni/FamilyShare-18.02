@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->integer('user_id');
             $table->string('title');
             $table->mediumText('body');
+
             $table->boolean('monday')->default(0);
             $table->boolean('tuesday')->default(0);
             $table->boolean('wednesday')->default(0);
@@ -25,11 +26,16 @@ class CreatePostsTable extends Migration
             $table->boolean('friday')->default(0);
             $table->boolean('saturday')->default(0);
             $table->boolean('sunday')->default(0);
+
             $table->decimal('timefrom')->nullable();
             $table->decimal('timeto')->nullable();
+            
             $table->boolean('immer')->default(false);
             $table->boolean('anfrage')->default(false);
             $table->boolean('online')->default(true);
+
+            $table->string('image')->nullable();
+
             $table->timestamps();
         });
     }

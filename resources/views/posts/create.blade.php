@@ -122,6 +122,11 @@
             <p>Uhr</p>
         </div> 
   </div>
+
+  <div class="form-group " >
+    <label class="pl-3" for="image">Bild</label>
+    <input type="file" name="image">
+  </div>
         <div class="pl-3 pb-3">
         {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
         </div>
