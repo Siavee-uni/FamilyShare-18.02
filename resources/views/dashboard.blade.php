@@ -6,7 +6,8 @@
     <div class="card" >
         <div class=""style="margin-bottom: 20px;">
             <div class="pt-3 pl-3 pb-3" style="background-color:#aeb3af24"> 
-                <h2>Alle deine Kameras im überblick</h2>
+                <h2>Alle deine Kameras im überblick</h2> <br>
+                <h5>Hinweiß: Eine vorhandene Anfrage wird angezeigt sobalt man bei einem Stream auf Freischalten klickt.</h5>
                
            </div>
            <div class="pt-4 "style="margin-left:10px;">
@@ -50,6 +51,7 @@
                                     </td>
                                     <td>@if ($post->anfrage === 0) <h4 class="text-center">keine</h4>
                                         @else <h4 class="text-center" style="color:green">vorhanden</h4>
+                                        <div class="text-center"><img style="height:40px" class="" src="/png/greencheck.png"></div>
                                         @endif
                                     </td>
                                     <td>
@@ -73,7 +75,7 @@
                                     <td>
                                         {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
                                             {{Form::hidden('_method', 'DELETE')}}
-                                            {{Form::submit('Löschen', ['class' => 'btn btn-danger'])}}
+                                            {{Form::submit('Löschen', ['class' => 'btn btn-3 btn-sep'])}}
                                         {!!Form::close()!!}
                                     </td>
                                 </tr>
