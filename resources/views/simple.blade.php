@@ -46,44 +46,73 @@
     </div>
   </div>
       <div class="row text-center">
-  @forelse($posts as $post)
-  <!-- Grid column -->
-        <div class="col-lg-4 col-md-12 mb-4">
-            <h4>Stream: {{$post->title}}</h4>
-  <!--Modal: Name-->
-          <div class="modal fade" id="modal-{{$post->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl" role="document">
-  
-  <!--Content-->
-              <div class="modal-content modal-xl">
-  
-  <!--Body-->
-                <div class="modal-body mb-0 p-0">
-  
-                    <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-                      <iframe class="embed-responsive-item" src="{{$post->body}}"
-                      allowfullscreen></iframe>
-                    </div>
-  
-                 </div>
-  
-  <!--Footer-->
-  <div class="modal-footer justify-content-center">
-  <h4 id="modal-{{$post->id}}" class="mr-4">{{$post->title}}</h4>
-  <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
-  </div>
-  
-  </div>
-  <!--/.Content-->
-  
-  </div>
-  </div>
-  <!--Modal: Name-->
-  
-  <a><img class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
-    data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
-  
-  </div>
+        @forelse($posts as $post)
+        <!-- Grid column -->
+              <div class="col-lg-6 col-md-12 mb-4"> <!-- mb = margin bottom-->
+                  <h4>Ort: {{$post->title}}</h4>
+                  @if (empty($post->timefrom))
+                  <h4>keine Zeit festgelegt</h4>
+                  @else 
+                  <h4>Verfügbar von {{$post->timefrom}} bis {{$post->timeto}}</h4>
+                  @endif
+        <!--Modal: Name-->
+                @php
+                $timenow = date('H.m')+1;  
+                @endphp
+                @if ($post->online === 1)
+                        <div class="modal fade" id="modal-{{$post->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document"><!-- modal-dialog ist für die größe zuständig/styling-->
+                            <div class="modal-content">
+                              <div class="modal-body mb-0 p-0" style="">
+                                  <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                                    <iframe class="embed-responsive-item" src="{{$post->body}}" allowfullscreen></iframe>
+                                  </div>
+                                <div class="modal-footer justify-content-center">
+                                  <h4 id="modal-{{$post->id}}" class="mr-4">{{$post->title}}</h4>
+                                  <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                           </div>
+                          </div>
+                         </div>
+                          @if ($post->image ==="noimage.jpg")
+                              <a><img onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
+                                data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
+                          @else
+                              <a><img style="width:100%" onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="./storage/uploads/{{$post->image}}" alt="video"
+                              data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
+                          @endif
+                  @else   
+                        <a><img onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
+                        data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
+                 @endif
+                
+            <div class="row pt-2">
+              <div class="col text-left">
+                <div class="row">
+                  <h5 class="pl-3">Status:</h5>
+                  @if ($post->online === 1)
+                  <h5 class="pl-2">Online</h5> <img id="online" class="pl-2" style="height:15px" src="/png/online.png" alt="">
+                  @else
+                  <h5 class="pl-2">Offline</h5><img id="offline" class="pl-2" style="height:15px " src="/png/offline.png" alt=""> 
+                  @endif
+                </div>
+            </div>
+              <div class="col text-right">
+                @if ($post->online === 0)
+      
+                    {!! Form::open(['action' => ['PostsController@anfrage', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+                    <button class="" style="height: 25px" type="submit"><h5>Stream freischalten</h5></button>
+                    <input name="anfrage" value="1" style="visibility: hidden">
+                    {!! Form::close() !!}
+              
+                @elseif ($post->online === 0 && $post->anfrage === 1)
+                   <button class="" style="height: 25px" type="submit" disabled><h5>anfrage versendet</h5></button>
+                @else
+                @endif
+              </div>
+            </div>
+        </div>
   <!-- Grid column -->
   @empty 
   <div class=""style="margin-left: 14px">

@@ -1384,4 +1384,4 @@ label {
 }
 .w3-button{color: rgb(255, 255, 255); background-color:#009688!important;border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
 .w3-circle{border-radius:50%}
-.w3-button:hover{background-color:#0096879d!important}
+.w3-button:hover{background-color:#0096879d!important;text-decoration:none}
