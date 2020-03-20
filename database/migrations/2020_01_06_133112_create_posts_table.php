@@ -27,8 +27,8 @@ class CreatePostsTable extends Migration
             $table->boolean('saturday')->default(0);
             $table->boolean('sunday')->default(0);
 
-            $table->decimal('timefrom')->nullable();
-            $table->decimal('timeto')->nullable();
+            $table->time('timefrom')->nullable();
+            $table->time('timeto')->nullable();
             
             $table->boolean('immer')->default(false);
             $table->boolean('anfrage')->default(false);

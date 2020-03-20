@@ -69,14 +69,14 @@ class PostsController extends Controller
         $fileNameToStore = 'noimage.jpg';
         }
 
-        // convert time to int
+        /*/ convert time to int
         if (empty($request->get('timefrom')) || empty($request->get('timefrom'))) {
             $timefrom = $request->get('timefrom');
             $timeto = $request->get('timeto');
         } else{
             $timefrom = str_replace(":", ".",$request->get('timefrom'));
             $timeto = str_replace(":", ".",$request->get('timeto'));
-        }
+        }*/
         
         
     
@@ -92,8 +92,8 @@ class PostsController extends Controller
         $post->saturday = $request->has('saturday') ? 6 : 0;
         $post->sunday = $request->has('sunday') ? 7 : 0;
         $post->immer = $request->has('immer') ? true : false;
-        $post->timefrom = $timefrom;
-        $post->timeto = $timeto;
+        $post->timefrom = $request->input('timefrom');
+        $post->timeto = $request->input('timeto');
 
         $post->user_id = auth()->user()->id;
         $post->image = $fileNameToStore;
@@ -134,7 +134,7 @@ class PostsController extends Controller
         ]);
         $post = Post::find($id);
         // Handle File Upload
-        /*if($request->hasFile('image')){
+        if($request->hasFile('image')){
         // Get filename with the extension
         $filenameWithExt = $request->file('image')->getClientOriginalName();
         // Get just filename
@@ -144,16 +144,26 @@ class PostsController extends Controller
         // Filename to store
         $fileNameToStore= $filename.'_'.time().'.'.$extension;
         // Upload Image
-        $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
+        $path = $request->file('image')->storeAs('public/uploads', $fileNameToStore);
         // Delete file if exists
-        Storage::delete('public/images/'.$post->image);
-        } */
+        Storage::delete('public/uploads/'.$post->image);
+        } 
         // Update Post
         $post->title = $request->input('title');
         $post->body = $request->input('body');
-        /*if($request->hasFile('image')){
+        $post->monday = $request->has('monday') ? 1 : 0;
+        $post->tuesday = $request->has('tuesday') ? 2 : 0;
+        $post->wednesday = $request->has('wednesday') ? 3 : 0;
+        $post->thursday = $request->has('thursday') ? 4 : 0;
+        $post->friday = $request->has('friday') ? 5 : 0;
+        $post->saturday = $request->has('saturday') ? 6 : 0;
+        $post->sunday = $request->has('sunday') ? 7 : 0;
+        $post->immer = $request->has('immer') ? true : false;
+        $post->timefrom = $request->input('timefrom');
+        $post->timeto = $request->input('timeto');
+        if($request->hasFile('image')){
         $post->image = $fileNameToStore;
-        }*/
+        }
         $post->save();
         
         return redirect('/posts')->with('success', 'Post Updated');
