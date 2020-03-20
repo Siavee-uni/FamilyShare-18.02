@@ -40,18 +40,46 @@ class PostsController extends Controller
     }
 
 
+
     public function store(Request $request)
     {
 
-        
-            $this->validate($request, [
-                'title' => 'required',
-                'body' => 'required',
-                
-                'image' => 'file|image|nullable|max:5000'
-            ]);
-        
-        
+        $rules = array(
+            'title' => 'required',
+            'body' => 'required',
+            'image' => 'file|image|nullable|max:5000',
+            'monday' => 'required_without_all:tuesday,wednesday,thursday,friday,saturday,sunday,immer',
+            'tuesday' => 'required_without_all:monday,wednesday,thursday,friday,saturday,sunday,immer',
+            'wednesday' => 'required_without_all:monday,tuesday,thursday,friday,saturday,sunday,immer',
+            'thursday' => 'required_without_all:monday,tuesday,wednesday,friday,saturday,sunday,immer',
+            'friday' => 'required_without_all:monday,tuesday,wednesday,thursday,saturday,sunday,immer',
+            'saturday' => 'required_without_all:monday,tuesday,wednesday,thursday,friday,sunday,immer',
+            'sunday' => 'required_without_all:monday,tuesday,wednesday,thursday,friday,saturday,immer',
+            'immer' => 'required_without_all:monday,tuesday,wednesday,thursday,friday,saturday,sunday'
+        );
+
+        $message = array(
+            'title.required' => 'The :attribute field is required.');
+            // 'title' => 'Titel benötigt' ,
+            // 'body' => 'link benötigt',
+            // 'image' => '',
+            // 'monday' => 'test',
+            // 'tuesday' => 'test',
+            // 'wednesday' => 'test',
+            // 'thursday' => 'test',
+            // 'friday' => 'test',
+            // 'saturday' => 'test',
+            // 'sunday' => 'test',
+            // 'immer' => 'test');  
+            
+        $this->validate($request,$rules,$message);
+   
+
+
+
+      
+
+
         //Handle File Upload
         if($request->hasFile('image')){
         //Get filename with the extension
