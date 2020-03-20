@@ -20,7 +20,8 @@ class PostsController extends Controller
     {
 
         $today = strToLower(now()->format('l'));
-
+       
+        // searching for day of the week in table.
         $posts = auth()->user()->posts()
             ->latest()
             ->where(function ($query) use ($today) {
@@ -28,7 +29,7 @@ class PostsController extends Controller
                     ->orwhere('immer', '=', '1');
             })
             ->paginate(10);
-
+            
         return view('posts.index')->with('posts', $posts);
 
     }

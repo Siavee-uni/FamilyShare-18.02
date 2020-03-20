@@ -22,48 +22,76 @@
             <h4>Wähle Tag und Zeit an dem der Stream zu sehen sein soll</h4>
            </div>
       
-      
+     
        <fieldset id="tage">
           <div class="row pl-3" style="margin-right: 400px;margin-top:px">
-          
+         
             <div class="col">
-                <input type="checkbox" id="a" name="monday">
+              @if ($post->monday==0)
+                <input type="checkbox" name="monday">
+              @else
+                <input type="checkbox" name="monday" checked> 
+              @endif  
                 <label for="sasquatch">Montag</label>
             </div>
               <div class="col-10">
-                <input type="checkbox" id="a" name="friday">
+                @if ($post->friday==0)
+                <input type="checkbox" name="friday">
+              @else
+                <input type="checkbox" name="friday" checked> 
+              @endif  
                 <label for="sasquatch">Freitag</label>
               </div>
             </div>  
       
               <div class="row pl-3"style="margin-right: 400px;margin-top:px">
                 <div class="col">
-                <input type="checkbox" id="a" name="tuesday">
+                  @if ($post->tuesday==0)
+                  <input type="checkbox" name="tuesday">
+                @else
+                  <input type="checkbox" name="tuesday" checked> 
+                @endif  
                 <label for="sasquatch">Dienstag</label>
               </div>
       
       
               <div class="col-10">
-                <input type="checkbox" id="a" name="saturday">
+                @if ($post->saturday==0)
+                <input type="checkbox" name="saturday">
+              @else
+                <input type="checkbox" name="saturday" checked> 
+              @endif  
                 <label for="sasquatch">Samstag</label>
               </div>
             </div>
       
             <div class="row pl-3"style="margin-right: 400px">
               <div class="col">
-                <input type="checkbox" id="a" name="wednesday">
+                @if ($post->wednesday==0)
+                <input type="checkbox" name="wednesday">
+              @else
+                <input type="checkbox" name="wednesday" checked> 
+              @endif  
                 <label for="sasquatch">Mittwoch</label>
               </div>
       
               <div class="col-10">
-                <input type="checkbox" id="a" name="sunday">
+                @if ($post->sunday==0)
+                <input type="checkbox" name="sunday">
+              @else
+                <input type="checkbox" name="sunday" checked> 
+              @endif  
                 <label for="sasquatch">Sonntag</label>
               </div>
             </div>
       
             <div class="row pl-3" style="margin-right: 300px">
               <div class="col">
-                <input type="checkbox" id="a" name="thursday">
+                @if ($post->thursday==0)
+                <input type="checkbox" name="thursday">
+              @else
+                <input type="checkbox" name="thursday" checked> 
+              @endif  
                 <label for="sasquatch">Donnerstag</label>
               </div>
           </div>  
@@ -72,7 +100,11 @@
       
               <div class="" style="">
                 <div class="col">
+              @if ($post->immer==0)
                   <input value="{{$post->immer}}" type="checkbox" id="checkme"  name="immer" onclick="checkboxme()">
+              @else
+              <input value="{{$post->immer}}" type="checkbox" id="checkme"  name="immer" onclick="checkboxme()" checked>
+              @endif    
                   <label style="font-weight:bold" for="sasquatch">Jeden Tag</label>
                 </div>
               </div>
@@ -125,7 +157,17 @@
   </div> 
 
   <script>
-
+window.onload = function () { 
+    if ( "<?php echo $post->immer ?>" != "0"){
+      var checkBox = document.getElementById("checkme");
+    
+        if (checkBox.checked == true){
+        document.getElementById('tage').setAttribute('disabled','disabled');
+      } else {
+        document.getElementById('tage').removeAttribute('disabled');
+      }
+    }
+}
     function checkboxme() { 
       var checkBox = document.getElementById("checkme");
     
