@@ -49,11 +49,11 @@
         @forelse($posts as $post)
         <!-- Grid column -->
               <div class="col-lg-6 col-md-12 mb-4"> <!-- mb = margin bottom-->
-                  <h4>Ort: {{$post->title}}</h4>
+                  <h3>Ort: {{$post->title}}</h3>
                   @if (empty($post->timefrom))
-                  <h4>keine Zeit festgelegt</h4>
+                  <h3>keine Zeit festgelegt</h3>
                   @else 
-                  <h4>Verfügbar von {{$post->timefrom}} bis {{$post->timeto}}</h4>
+                  <h3>Verfügbar von {{$post->timefrom}} bis {{$post->timeto}}</h3>
                   @endif
         <!--Modal: Name-->
                 @php
@@ -90,11 +90,11 @@
             <div class="row pt-2">
               <div class="col text-left">
                 <div class="row">
-                  <h5 class="pl-3">Status:</h5>
+                  <h4 class="pl-3">Status:</h4>
                   @if ($post->online === 1)
-                  <h5 class="pl-2">Online</h5> <img id="online" class="pl-2" style="height:15px" src="/png/online.png" alt="">
+                  <h4 class="pl-2" style="color:green">Online</h4> <!--<img id="online" class="pl-2" style="height:15px" src="/png/online.png" alt="">-->
                   @else
-                  <h5 class="pl-2">Offline</h5><img id="offline" class="pl-2" style="height:15px " src="/png/offline.png" alt=""> 
+                  <h4 class="pl-2"style="color:red">Offline</h4><!--<img id="offline" class="pl-2" style="height:15px " src="/png/offline.png" alt=""> -->
                   @endif
                 </div>
             </div>
@@ -102,7 +102,7 @@
                 @if ($post->online === 0)
       
                     {!! Form::open(['action' => ['PostsController@anfrage', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-                    <button class="" style="height: 25px" type="submit"><h5>Stream freischalten</h5></button>
+                    <button class="btn-2" style="height: 25px;border-radius: 4px;border: 1px solid rgb(0, 0, 0);" type="submit"><h4>Stream freischalten</h4></button>
                     <input name="anfrage" value="1" style="visibility: hidden">
                     {!! Form::close() !!}
               
