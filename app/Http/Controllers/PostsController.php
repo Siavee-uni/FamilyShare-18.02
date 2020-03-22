@@ -113,6 +113,7 @@ class PostsController extends Controller
         $post = new Post;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+
         $post->monday = $request->has('monday') ? 1 : 0;
         $post->tuesday = $request->has('tuesday') ? 2 : 0;
         $post->wednesday = $request->has('wednesday') ? 3 : 0;
@@ -121,9 +122,12 @@ class PostsController extends Controller
         $post->saturday = $request->has('saturday') ? 6 : 0;
         $post->sunday = $request->has('sunday') ? 7 : 0;
         $post->immer = $request->has('immer') ? true : false;
+
         $post->timefrom = $request->input('timefrom');
         $post->timeto = $request->input('timeto');
 
+        $post->ort =$request->input('ort');
+       
         $post->user_id = auth()->user()->id;
         $post->image = $fileNameToStore;
         $post->save();

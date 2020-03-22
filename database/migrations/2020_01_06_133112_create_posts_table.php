@@ -36,6 +36,8 @@ class CreatePostsTable extends Migration
 
             $table->string('image')->nullable();
 
+            $table->integer('ort')->nullable();
+
             $table->timestamps();
         });
     }
