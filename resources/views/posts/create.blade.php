@@ -23,12 +23,12 @@
     @csrf
         <div class="form-group pl-3 pt-3 pr-3">
             
-            {{Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Title'])}}
+            {{Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Tittel'])}}
         </div>
 
         <div class="form-group pl-3 pr-3">
            
-            {{Form::text('body', '', ['class' => 'form-control', 'placeholder' => 'Video Link like this http://131.173.8.23:80/mjpg/video.mjpg'])}}
+            {{Form::text('body', '', ['class' => 'form-control', 'placeholder' => 'Streaming Link z.B http://131.173.8.23:80/mjpg/video.mjpg'])}}
         </div>
 
         
@@ -37,7 +37,6 @@
     <div class="pt-3 pl-3 pb-3"style="background-color:#56b03f32">  
       <h4>Wähle Tag und Zeit an dem der Stream zu sehen sein soll</h4>
      </div>
-
 
  <fieldset id="tage">
     <div class="row pl-3" style="margin-right: 400px;margin-top:px">
@@ -123,10 +122,42 @@
         </div> 
   </div>
 
-  <div class="form-group " >
+  <div class="pt-3 pl-3 pb-3"style="background-color:#56b03f32">  
+    <h4>Optional: Wähle ein Bereich für den Stream oder lade ein thumbnail hoch</h4>
+   </div>
+<!-- Bild wählen----------------------------------------------------------->
+<div class="row">
+  <div class="col-sm">
+    <div class="pt-3 pl-3 text-center"><h4>Küche</h4></div>
+    <div class="pt-3 pl-3"><img style="width:100%; height: 150px" src="https://images.kueche-co.de/PIM/Kuechenbilder/Beton/image-thumb__79133__heroimage-medium/Beton~-~767w.jpeg" alt=""></div>
+    <div class="pt-3 pl-3 text-center"><input type="checkbox"></div>
+  </div>
+  <div class="col-sm">
+    <div class="pt-3  text-center"><h4>Wohnzimmer</h4></div>
+    <div class="pt-3 "><img style="width:100%; height: 150px" src="https://www.holzconnection.de/media/wysiwyg/landingpages/wohnzimmer/holzconnection-wohnzimmer-top-1.jpg" alt=""></div>
+    <div class="pt-3  text-center"><input type="checkbox"></div>
+  </div>
+  <div class="col-sm">
+    <div class="pt-3  text-center"><h4>Schlafzimmer</h4></div>
+    <div class="pt-3 "><img style="width:100%; height: 150px" src="https://d16hxxzh1eypty.cloudfront.net/large/s/schlafzimmer-mette-komplettset-landhausstil-kiefer-massiv-1557312080.jpg" alt=""></div>
+    <div class="pt-3  text-center"><input type="checkbox"></div>
+  </div>
+  <div class="col-sm">
+    <div class="pt-3  pr-3 text-center"><h4>Garten</h4></div>
+    <div class="pt-3  pr-3"><img style="width:100%; height: 150px" src="https://imgix.obi.de/magazinapi/dam/Gartengestaltung/Ideen-fuer-die-Gartengestaltung-5-Stile/Gartenstile-Titelbild-mediterraner-Garten.jpg?auto=format%2Ccompress&crop=focalpoint&fit=crop&fp-x=0.446&fp-y=0.36&fp-z=1&h=818&w=1440" alt=""></div>
+    <div class="pt-3  pr-3 text-center"><input type="checkbox"></div>
+  </div>
+</div>
+  
+<hr>
+
+   <div class="form-group pt-3 pb-3" >
     <label class="pl-3" for="image">Bild</label>
     <input type="file" name="image">
   </div>
+
+<hr>
+
         <div class="pl-3 pb-3">
         {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
         </div>
