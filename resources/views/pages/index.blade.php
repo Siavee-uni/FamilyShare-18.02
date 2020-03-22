@@ -221,26 +221,7 @@
   <div class="container">
     <div class="row">
 
-      <div class="col-md-6 col-lg-3">
-        <!--<div class="block-pricing">
-          <div class="table">
-            <h4>basic</h4>
-            <h2>$29</h2>
-            <ul class="list-unstyled">
-              <li><b>4 GB</b> Ram</li>
-              <li><b>7/24</b> Tech Support</li>
-              <li><b>40 GB</b> SSD Cloud Storage</li>
-              <li>Monthly Backups</li>
-              <li>Palo Protection</li>
-            </ul>
-            <div class="table_btn">
-              <a href="#" class="btn"><i class="fa fa-shopping-cart"></i> Buy Now</a>
-            </div>
-          </div>
-        </div>-->
-      </div>
-
-      <div class="col-md-6 col-lg-3">
+      <div class="col-md-6 col-lg-4">
         <div class="block-pricing">
           <div class="table">
             <h4>Free</h4>
@@ -248,31 +229,44 @@
             <ul class="list-unstyled">
               <li>7 Tage testen</li>
               <li>-</li>
-              <li>-</li>
-              <li>-</li>
-              <li>-</li>
             </ul>
             <div class="table_btn">
-              <a href="#" class="btn"><i class="fa fa-shopping-cart"></i> Buy Now</a>
+              <a href="#" class="btn"></i>Jetzt ausprobieren</a>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col-md-6 col-lg-3">
+      <div class="col-md-6 col-lg-4">
         <div class="block-pricing">
           <div class="table">
-            <h4>BUSINESS</h4>
-            <h2>5€</h2>
+            <h4>Business</h4>
+            <h2>5€/monat</h2>
             <ul class="list-unstyled">
-              <li><b>-</li>
-              <li><b>7/24</b> Support</li>
-              <li><b>-</li>
+              <li>Alle funktionen</li>
               <li>-</li>
-              <li>-</li>
+           
             </ul>
             <div class="table_btn">
-              <a href="#" class="btn"><i class="fa fa-shopping-cart"></i> Buy Now</a>
+              <a href="{{ route('register') }}" class="btn"><i class="fa fa-shopping-cart"></i>Kaufen</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="block-pricing">
+          <div class="table">
+            <h4>Premium</h4>
+            <h2>50€</h2>
+            <ul class="list-unstyled">
+             
+              <li><b>Vorort</b> installation</li>
+              <li>Alle Funtionen</li>
+          
+            </ul>
+            <div class="table_btn">
+              <a href="{{ route('register') }}" class="btn"><i class="fa fa-shopping-cart"></i>Kaufen</a>
             </div>
           </div>
         </div>

@@ -1358,7 +1358,7 @@ label {
 
 
 .btn-3 {
-	background: rgba(255, 0, 0, 0.644) !important;
+	background: rgba(255, 0, 0, 0.301) !important;
   color: rgb(0, 0, 0);
   border: 1px solid rgb(255, 255, 255);
   border-radius: 20px;
@@ -1366,20 +1366,20 @@ label {
 }
 .btn-3:hover {
   background: #c0392b;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .btn-sep {
 	padding: 15px 15px 15px 15px;
 }
 .btn-2:hover {
-  background: #27ae5f;
-  color: white;
+  background: #14b90532;
+  color: rgb(0, 0, 0);
 }
 .btn-2 {
   border: 1px solid rgb(255, 255, 255);
   border-radius: 20px;
-	background: rgba(86, 176, 63, 0.692);
+	background: #56b03f32;
 	color: rgb(0, 0, 0);
 }
 .w3-button{color: rgb(255, 255, 255); background-color:#009688!important;border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
