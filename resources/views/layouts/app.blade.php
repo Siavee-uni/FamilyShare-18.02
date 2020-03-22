@@ -58,8 +58,9 @@
                             <h5><a class="nav-link pl-2 pt-2" href="/#contact">Kontakt</a></h5>
     
                         @else   
-                            <h5><a class="nav-link pl-2 pt-2" href="{{ url('/posts') }}">Videos</a></h5>
-                            <h5><a class="nav-link pl-2 pt-2" href="{{ url('/simple') }}">SimpleMode</a></h5>
+                            <h5><a style="color:black" class="nav-link pl-2 pt-2" href="{{ url('/posts') }}">Videos</a></h5>
+                            <h5><a style="color:black" class="nav-link pl-2 pt-2" href="{{ url('/simple') }}">SimpleMode</a></h5>
+                            <h5><a style="color:black" class="nav-link pl-2 pt-2" href="{{ url('/dashboard') }}">Dashboard</a></h5>
                             
                         @endguest 
                     </ul>
@@ -69,24 +70,21 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <h5><a class="nav-link pl-3 pt-2" href="{{ route('login') }}">{{ __('Login') }}</a></h5>
+                                <h5><a style="color:black" class="nav-link pl-3 pt-2" href="{{ route('login') }}">{{ __('Login') }}</a></h5>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <h5><a class="nav-link pl-3 pt-2" href="{{ route('register') }}">{{ __('Register') }}</a></h5>
+                                    <h5><a style="color:black" class="nav-link pl-3 pt-2" href="{{ route('register') }}">{{ __('Register') }}</a></h5>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a style="color:black" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/dashboard"
-                                       >
-                                        Dashboard
-                                    </a>
+                                  
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
