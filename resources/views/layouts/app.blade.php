@@ -52,10 +52,10 @@
                     <ul class="navbar-nav pl-4 ">
                         @guest    
                           
-                            <h5><a class="nav-link pl-2 pt-2" href="/#features">Features</a></h5>
-                            <h5><a class="nav-link pl-2 pt-2" href="/#pricing">Preise</a></h5>
-                            <h5><a class="nav-link pl-2 pt-2" href="/#team">Team</a></h5>
-                            <h5><a class="nav-link pl-2 pt-2" href="/#contact">Kontakt</a></h5>
+                            <h5><a style="color:black" class="nav-link pl-2 pt-2" href="/#features">Features</a></h5>
+                            <h5><a style="color:black" class="nav-link pl-2 pt-2" href="/#pricing">Preise</a></h5>
+                            <h5><a style="color:black" class="nav-link pl-2 pt-2" href="/#team">Team</a></h5>
+                            <h5><a style="color:black"class="nav-link pl-2 pt-2" href="/#contact">Kontakt</a></h5>
     
                         @else   
                             <h5><a style="color:black" class="nav-link pl-2 pt-2" href="{{ url('/posts') }}">Videos</a></h5>
