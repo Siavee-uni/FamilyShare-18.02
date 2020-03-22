@@ -75,17 +75,29 @@
                            </div>
                           </div>
                          </div>
-                          @if ($post->image ==="noimage.jpg")
-                              <a><img onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
-                                data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
-                          @else
-                              <a><img style="width:100%" onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="./storage/uploads/{{$post->image}}" alt="video"
-                              data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
-                          @endif
-                  @else   
-                        <a><img onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
+                         @if ($post->ort === 1) 
+                    <a><img style="width:100%" onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/img/küche.jpg" alt="video"
+                      data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
+                    @elseif ($post->ort === 2)  
+                    <a><img style="width:100%" onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/wohnzimmer.jpg" alt="video"
+                      data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
+                    @elseif ($post->ort === 3)  
+                    <a><img style="width:100%" onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/schlafzimmer.jpg" alt="video"
+                      data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
+                    @elseif ($post->ort === 4)  
+                    <a><img style="width:100%" onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/garten.jpg" alt="video"
+                      data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
+                    @elseif ($post->image ==="noimage.jpg")
+                      <a><img onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
+                        data-toggle="modal" data-target="#modal-{{$post->id}}"></a>  
+                    @else
+                        <a><img style="width:100%" onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="./storage/uploads/{{$post->image}}" alt="video"
                         data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
-                 @endif
+                    @endif
+            @else   
+                  <a><img onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
+                  data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
+           @endif
                 
             <div class="row pt-2">
               <div class="col text-left">
