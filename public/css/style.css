@@ -1385,3 +1385,184 @@ label {
 .w3-button{color: rgb(255, 255, 255); background-color:#009688!important;border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
 .w3-circle{border-radius:50%}
 .w3-button:hover{background-color:#0096879d!important;text-decoration:none}
+
+/*       table color */
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: white; 
+ }
+
+ .button{
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  padding: 6px 20px;
+  margin: 0;
+  cursor: pointer;
+  border: 1px solid #bbb;
+  overflow: visible;
+  font: bold 13px arial, helvetica, sans-serif;
+  text-decoration: none;
+  white-space: nowrap;
+  color: #555;
+  
+  background-color: #ddd;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,1)), to(rgba(255,255,255,0)));
+  background-image: -webkit-linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255,0));
+  background-image: -moz-linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255,0));
+  background-image: -ms-linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255,0));
+  background-image: -o-linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255,0));
+  background-image: linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255,0));
+  
+  -webkit-transition: background-color .2s ease-out;
+  -moz-transition: background-color .2s ease-out;
+  -ms-transition: background-color .2s ease-out;
+  -o-transition: background-color .2s ease-out;
+  transition: background-color .2s ease-out;
+  background-clip: padding-box; /* Fix bleeding */
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
+  text-shadow: 0 1px 0 rgba(255,255,255, .9);
+  
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.button:hover{
+  background-color: #eee;
+  color: #555;
+}
+
+.button.green, .button.red, .button.blue {
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0,0,0,.2);
+  
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,.3)), to(rgba(255,255,255,0)));
+  background-image: -webkit-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+  background-image: -moz-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+  background-image: -ms-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+  background-image: -o-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+  background-image: linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+}
+
+/* */
+
+.button.green{
+  background-color: #57a957;
+  border-color: #57a957;
+}
+
+.button.green:hover{
+  background-color: #62c462;
+}
+
+.button.green:active{
+  background: #57a957;
+}
+
+/* */
+
+.button.red{
+  background-color: #ca3535;
+  border-color: #c43c35;
+}
+
+.button.red:hover{
+  background-color: #ee5f5b;
+}
+
+.button.red:active{
+  background: #c43c35;
+}
+
+/* add button */
+.wrap {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrap .add-btn {
+  width: 130px;
+  height: 20px;
+  padding: 8px 20px;
+  background: #f6f7f9;
+  border: 1px solid #4b4f56;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.wrap .add-btn:hover {
+  background: #e9ebee;
+}
+.wrap .add-btn .plus {
+  width: 16px;
+  height: 2px;
+  margin-top: 10px;
+  background: #4b4f56;
+  display: inline-block;
+  vertical-align: top;
+  transition: transform .5s;
+}
+.wrap .add-btn .plus:before {
+  margin: -7px 0 0 7px;
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 16px;
+  background: #4b4f56;
+  transition: margin .5s;
+}
+.wrap .add-btn .plus.tick {
+  transform: translateX(6px) rotate(-45deg);
+}
+.wrap .add-btn .plus.tick:before {
+  height: 8px;
+  margin: -7px 0 0 0;
+}
+.wrap .add-btn .text {
+  margin: 0 5px;
+  display: inline-block;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+  line-height: 20px;
+  vertical-align: top;
+  color: #4b4f56;
+}
+.wrap .add-btn .text.move {
+  margin: 0 15px;
+}
+.wrap .add-btn .text > .add-text {
+  opacity: 1;
+  transition: opacity .5s;
+}
+.wrap .add-btn .text > .add-text.out {
+  opacity: 0;
+}
+.wrap .add-btn .user-wrap {
+  display: inline-block;
+}
+.wrap .add-btn .user-wrap > i {
+  font-size: 20px;
+  color: #4b4f56;
+}
+.wrap .add-btn .user-wrap > i.two {
+  position: absolute;
+  margin: -21px 0 0 12px;
+  opacity: 0;
+  transition: opacity .5s;
+}
+.wrap .add-btn .user-wrap > i.two.in {
+  opacity: 1;
+}
+
+.imghover:hover {
+  
+    opacity: 0.5;
+}

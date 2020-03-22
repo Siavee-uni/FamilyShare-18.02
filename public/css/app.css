@@ -2025,7 +2025,7 @@ pre code {
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgb(255, 255, 255);
 }
 
 .table-hover tbody tr:hover {
@@ -2087,7 +2087,7 @@ pre code {
 .table-success td,
 .table-success thead th,
 .table-success tbody + tbody {
-  border-color: #98dfb6;
+  border-color: #ffffff;
 }
 
 .table-hover .table-success:hover {
@@ -2096,7 +2096,7 @@ pre code {
 
 .table-hover .table-success:hover > td,
 .table-hover .table-success:hover > th {
-  background-color: #b3e8ca;
+  background-color: #00ff6e;
 }
 
 .table-info,
@@ -2252,7 +2252,7 @@ pre code {
 }
 
 .table-dark.table-striped tbody tr:nth-of-type(odd) {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgb(255, 255, 255);
 }
 
 .table-dark.table-hover tbody tr:hover {

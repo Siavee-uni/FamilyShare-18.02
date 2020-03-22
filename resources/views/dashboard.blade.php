@@ -5,17 +5,18 @@
 <div class="container pt-3" style="" >
     <div class="card" >
         <div class=""style="margin-bottom: 20px;">
-            <div class="pt-3 pl-3 pb-3" style="background-color:#aeb3af24"> 
+            <div class="pt-3 pl-3 pb-3" style="background-color:"> 
                 <h2>Alle deine Kameras im überblick</h2> <br>
                 <h5>Hinweiß: Eine vorhandene Anfrage wird angezeigt sobalt man bei einem Stream auf Freischalten klickt.</h5>
                
            </div>
-           <div class="pt-4 "style="margin-left:10px;">
-            <h4><a href="/posts/create" class="w3-button w3-circle w3-teal" style="background-color:#d4e6cf!important">+</a>   neue Kamera</h4>   
+           <hr>
+           <div class="pl-3">
+        <a href="/posts/create"><img class="imghover" style="height:50px" src="/img/svg/add.svg" alt=""></a>
             
-                    
+    </div>       
                 
-           </div>
+         
         </div>
          
         @if(empty($posts))
@@ -24,7 +25,7 @@
         </div>         
             @else
             
-                    <table class="table table-striped ">
+                    <table class="table table-striped">
                         <thead>
                             <tr>
                               <th scope="col"><h5 class="">Video</h5>  </th>
@@ -45,37 +46,40 @@
                                             @endif
                                     </td>
                                     <td>
-                                        @if ($post->online === 1)<div class="text-center pt-3"><img style="height:32px" class="" src="/png/green.png"></div>
-                                        @else  <div class="text-center pt-3"><img style="height:42px" class="" src="/png/Red.svg"></div>
+                                        @if ($post->online === 1)
+                                            <div class="text-center pt-4"><h4 style="color:green">online</h4><!--<img style="height:32px" class="" src="/png/green.png">--></div>
+                                        @else  
+                                            <div class="text-center pt-4"><h4 style="color:red">offline</h4><!--<img style="height:42px" class="" src="/png/Red.svg">--></div>
                                         @endif
                                     </td>
-                                    <td>@if ($post->anfrage === 0) <!--<h4 class="text-center">keine</h4>-->
-                                        @else 
-                                        <div class="text-center pt-3"><img style="height:40px" class="" src="/png/greencheck.png"></div>
-                                        @endif
+                                    <td
+                                    >@if ($post->anfrage === 0) <!--<h4 class="text-center">keine</h4>-->
+                                     @else 
+                                        <div class="text-center pt-3"><img style="height:40px" class="" src="/png/message.svg"></div>
+                                    @endif
                                     </td>
                                     <td>
                                         @if ($post->online === 0)
                                         {!! Form::open(['action' => ['PostsController@online', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                                             <div class="text-center">
                                             <input name="online" value="1" type='hidden'>
-                                            <div class="pt-3"><button type="submit" class="btn btn-2 btn-sep">Stream aktivieren</button> <br> <br></div>
+                                            <div class="pt-4"><button type="submit" class="green button">Stream aktivieren</button> <br> <br></div>
                                         </div>
                                         {!! Form::close() !!}
 
                                         @else
                                         {!! Form::open(['action' => ['PostsController@online', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                                         <input name="online" value="0" type='hidden'>
-                                        <div class="pt-3"><button type="submit" style="background-color:red" class="btn btn-3 btn-sep">Stream deaktivieren</button> </td></div>
+                                        <div class="pt-4"><button type="submit" style="" class="red button">Stream deaktivieren</button> </td></div>
                                         {!! Form::close() !!}
                                         @endif
                                     <td> <div class="pt-4" style=""><h4>{{$post->title}}</h4></div></td>
                                     
-                                    <td><div class="pt-3"><a href="/posts/{{$post->id}}/edit" class="btn btn-outline-primary btn-rounded btn-md ml-4">Edit</a></td></div>
+                                    <td><div class="pt-4"><a href="/posts/{{$post->id}}/edit" class="button">Edit</a></td></div>
                                     <td>
                                         {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
                                             {{Form::hidden('_method', 'DELETE')}}
-                                            <div class="pt-3">{{Form::submit('Löschen', ['class' => 'btn btn-3 btn-sep'])}}</div>
+                                            <div class="pt-4">{{Form::submit('Löschen', ['class' => 'red button'])}}</div>
                                         {!!Form::close()!!}
                                     </td>
                                 </tr>

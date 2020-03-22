@@ -102,7 +102,7 @@
                 @if ($post->online === 0)
       
                     {!! Form::open(['action' => ['PostsController@anfrage', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-                    <button class="btn-2" style="height: 25px;border-radius: 4px;border: 1px solid rgb(0, 0, 0);" type="submit"><h4>Stream freischalten</h4></button>
+                    <button class="green button" style="height: 25px;" type="submit">Stream freischalten</button>
                     <input name="anfrage" value="1" style="visibility: hidden">
                     {!! Form::close() !!}
               
