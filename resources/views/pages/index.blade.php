@@ -70,7 +70,7 @@
   <div class="container">
     <div class="section-title text-center">
 
-      <h2>Auf einem Blick</h2>
+      <h2>Auf einen Blick</h2>
       <p class="separator">Unsere wichtigsten Features</p>
 
     </div>
