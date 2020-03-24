@@ -6,9 +6,9 @@
     <div class="card" >
         <div class=""style="margin-bottom: 20px;">
             <div class="pt-3 pl-3 pb-3" style="background-color:"> 
-                <h2>Alle deine Kameras im überblick</h2> <br>
-                <h4>Link zum SimpleMode welcher die Vereinfachte Ansicht der Streams für Senioren hat</h4><a href=""><h4 style="color:green;text-transform: lowercase;">family-share.de/simple</h4></a> <br>
-                <h5>Hinweis: Eine vorhandene Anfrage wird angezeigt sobald man bei einem Stream auf Freischalten klickt.</h5>
+                <h2>Alle deine Kameras im Überblick</h2> <br>
+                <h4>Hier geht es zum SimpleMode - die übersichtliche Benutzeroberfläche für Senioren</h4><a href=""><h4 style="color:green;text-transform: lowercase;">family-share.de/simple</h4></a> <br>
+                <h5>Hinweis: Eine vorhandene Anfrage wird angezeigt sobald bei einem Stream auf Freischalten geklickt wurde.</h5>
                
            </div>
            <hr>
