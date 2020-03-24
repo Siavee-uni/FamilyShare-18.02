@@ -7,9 +7,9 @@
 <div class="container pt-3">
     <div class="card"style="margin-bottom: 70px;">
       <div class="pt-3 pl-3 pb-3"style="">
-      <h4>klick <a href="/posts/create" class="btn btn-outline-primary btn-rounded btn-md ml-2 mr-2">hier</a> um eine neue Kamera hinzuzufügen</h4>
+      <h4><li>klick <a href="/posts/create" class="btn btn-outline-primary btn-rounded btn-md ml-2 mr-2">hier</a> um eine neue Kamera hinzuzufügen.</h4>
       
-      <h4>Um den Stream zu starten klicke auf eins der Videos</h4>
+      <h4><li>Um den Stream zu starten klicke auf eins der Videos.</h4>
       </div>
     </div>
       <div class="row text-center">
@@ -37,7 +37,7 @@
                             </div>
                           <div class="modal-footer justify-content-center">
                             <h4 id="modal-{{$post->id}}" class="mr-4">{{$post->title}}</h4>
-                            <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Schließen</button>
                           </div>
                         </div>
                      </div>
@@ -73,9 +73,9 @@
           <div class="row">
             <h5 class="pl-3">Status:</h5>
             @if ($post->online === 1)
-            <h5 class="pl-2">Online</h5> <img id="online" class="pl-2" style="height:15px" src="/png/online.png" alt="">
+            <h5 class="pl-2"style="color:green">Online</h5> 
             @else
-            <h5 class="pl-2">Offline</h5><img id="offline" class="pl-2" style="height:15px " src="/png/offline.png" alt=""> 
+            <h5 class="pl-2"style="color:red">Offline</h5>
             @endif
           </div>
       </div>

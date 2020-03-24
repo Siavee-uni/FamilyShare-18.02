@@ -71,7 +71,7 @@
     <div class="section-title text-center">
 
       <h2>Auf einem Blick</h2>
-      <p class="separator">Unsere wichtigsten Fitures</p>
+      <p class="separator">Unsere wichtigsten Features</p>
 
     </div>
   </div>
@@ -83,9 +83,11 @@
         <div class="feature-block">
 
           <img src="img/svg/austausch.svg" alt="img" class="img-fluid">
-          <h4>Einfacher Austausch inerhalb der Familie</h4>
-          <p>#</p>
-          <a href="#">read more</a>
+          <h4>Einfacher Austausch innerhalb der Familie</h4>
+          <p>Sehen und hören – in Echtzeit
+            Integrierter und regelbasierter Zuschauermodus
+            </p>
+         
 
         </div>
       </div>
@@ -95,8 +97,9 @@
 
           <img src="img/svg/software.svg" alt="img" class="img-fluid">
           <h4>Keine Software benötigt</h4>
-          <p>Benutzen sie unsere App wann und wo Sie wollen. Ohne vorher Software runterzuladen</p>
-          <a href="#">read more</a>
+          <p>Bei der Familie sein wann und wo Sie möchten – dank unserer web-basierten Lösung
+          </p>
+          
 
         </div>
       </div>
@@ -106,8 +109,9 @@
 
           <img src="img/svg/alt.svg" alt="img" class="img-fluid">
           <h4>Für Senioren entwickelt</h4>
-          <p>Kein verklicken mehr. Alles features auf einen Blick</p>
-          <a href="#">read more</a>
+          <p>Schlanke Bedienoberfläche,
+            große und kontrastreiche Symbole und Schaltflächen</p>
+         
 
         </div>
       </div>
@@ -138,16 +142,17 @@
       <div class="col-md-6 col-lg-3">
         <div class="feature-block">
           <img src="img/svg/werkzeug.svg" alt="img" class="img-fluid">
-          <h4>Vor Ort installation</h4>
-          <p>Wir kommen zu ihnen nach Hause und installieren ihre Kamera für Sie.</p>
+          <h4>Installation vor Ort
+          </h4>
+          <p>Wir kommen zu Ihnen nach Hause und installieren Ihre Kamera für Sie.</p>
         </div>
       </div>
 
       <div class="col-md-6 col-lg-3">
         <div class="feature-block">
           <img src="img/svg/Uhr.svg" alt="img" class="img-fluid">
-          <h4>Rund um die Uhr Service</h4>
-          <p>Sie haben Fragen? Wir sind rund um die Uhr für sie da.</p>
+          <h4>Service rund um die Uhr</h4>
+          <p>Sie haben Fragen? Wir sind rund um die Uhr für Sie da</p>
         </div>
       </div>
 
@@ -155,7 +160,7 @@
         <div class="feature-block">
           <img src="img/svg/laptop.svg" alt="img" class="img-fluid">
           <h4>Ausgelegt für alle Geräte</h4>
-          <p>Sie wollen unsere App auf ihrem Handy oder Tablet benutzen? Kein Problem.</p>
+          <p>Sie wollen unsere App auf Ihrem Handy oder Tablet benutzen? Kein Problem.</p>
         </div>
       </div>
 
@@ -163,7 +168,7 @@
         <div class="feature-block">
           <img src="img/svg/audio.svg" alt="img" class="img-fluid">
           <h4>Audio Support</h4>
-          <p>Reden sie mit ihrer Familie</p>
+          <p>FamilyShare unterstützt unilaterale audiovisuelle Streams und sorgt so für ein noch besseres virtuelles Erlebnis</p>
         </div>
       </div>
 
@@ -171,14 +176,14 @@
         <div class="feature-block">
           <img src="img/svg/hd.svg" alt="img" class="img-fluid">
           <h4>Full HD Support</h4>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+          <p>FamilyShare kann hochauflösende Videostreams empfangen und anzeigen.</p>
         </div>
       </div>
 
       <div class="col-md-6 col-lg-3">
         <div class="feature-block">
           <img src="img/svg/schild.svg" alt="img" class="img-fluid">
-          <h4>Sicherheit</h4>
+          <h4>Datenschutz</h4>
           <p>Ihre privatsphäre ist uns wichtig. Immer auf dem neusten Stand</p>
         </div>
       </div>
@@ -186,16 +191,16 @@
       <div class="col-md-6 col-lg-3">
         <div class="feature-block">
           <img src="img/svg/update.svg" alt="img" class="img-fluid">
-          <h4>Updates</h4>
-          <p>Wir bringen regelmäßig neue Fitures auf den Markt</p>
+          <h4>Neue Updates und Features</h4>
+          <p>Wir veröffentlichen regelmäßig Updates und neue Features</p>
         </div>
       </div>
 
       <div class="col-md-6 col-lg-3">
         <div class="feature-block">
           <img src="img/svg/alt.svg" alt="img" class="img-fluid">
-          <h4>Senioren Modus</h4>
-          <p>#</p>
+          <h4>Einfaches bezahlen</h4>
+          <p>Alle gängigen Zahlungsmittel werden akzeptiert</p>
         </div>
       </div>
 
@@ -348,7 +353,7 @@
     <div class="section-title text-center">
 
       <h2>Das Team</h2>
-      <p class="separator">#</p>
+      <p class="separator"></p>
 
     </div>
   </div>
@@ -467,7 +472,7 @@
 
           <div class="email">
             <i class="fa fa-envelope"></i>
-            <p>info@familyShare.com</p>
+            <a href="mailto:info@family-share.de"><p>info@family-share.de</p></a>
           </div>
 
           <div>
@@ -488,31 +493,114 @@
 
       <div class="col-lg-5 col-md-8">
         <div class="form">
-          <div id="sendmessage">Your message has been sent. Thank you!</div>
           <div id="errormessage"></div>
-          <!--<form action="#" method="get" role="form" class="contactForm">-->
+          <form name="contactform" method="post" action="email">
             <div class="form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+              <input type="text" name="name" class="form-control" id="name" placeholder="Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
               <div class="validation"></div>
             </div>
             <div class="form-group">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+              <input type="email" class="form-control" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Please enter a valid email" />
               <div class="validation"></div>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Tittel" data-rule="minlen:4" />
               <div class="validation"></div>
             </div>
             <div class="form-group">
-              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Nachricht"></textarea>
               <div class="validation"></div>
             </div>
-            <div class="text-center"><button type="submit">Send Message</button></div>
+            <div class="text-center"><button type="submit">Nachricht versenden</button></div>
           </form>
         </div>
       </div>
     </div>
   </div>
+  <!-- E-mail script------------------------------------------->
+<?php
+if(isset($_POST['email'])) {
+ 
+    // EDIT THE 2 LINES BELOW AS REQUIRED
+    $email_to = "info@family-share.de";
+    $email_subject = "FamilyShare";
+ 
+    function died($error) {
+        // your error code can go here
+        echo "We are very sorry, but there were error(s) found with the form you submitted. ";
+        echo "These errors appear below.<br /><br />";
+        echo $error."<br /><br />";
+        echo "Please go back and fix these errors.<br /><br />";
+        die();
+    }
+ 
+ 
+    // validation expected data exists
+    if(!isset($_POST['name']) ||
+        !isset($_POST['email']) ||
+        !isset($_POST['subject']) ||
+        !isset($_POST['message'])) {
+        died('We are sorry, but there appears to be a problem with the form you submitted.');       
+    }
+ 
+     
+ 
+    $first_name = $_POST['name']; // required
+    $last_name = $_POST['email']; // required
+    $email_from = $_POST['subject']; // required // not required
+    $comments = $_POST['message']; // required
+ 
+    $error_message = "";
+    $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
+ 
+  if(!preg_match($email_exp,$email_from)) {
+    $error_message .= 'The Email Address you entered does not appear to be valid.<br />';
+  }
+ 
+    $string_exp = "/^[A-Za-z .'-]+$/";
+ 
+  if(!preg_match($string_exp)) {
+    $error_message .= 'The First Name you entered does not appear to be valid.<br />';
+  }
+ 
+  if(strlen($comments) < 2) {
+    $error_message .= 'The Comments you entered do not appear to be valid.<br />';
+  }
+ 
+  if(strlen($error_message) > 0) {
+    died($error_message);
+  }
+ 
+    $email_message = "Form details below.\n\n";
+ 
+     
+    function clean_string($string) {
+      $bad = array("content-type","bcc:","to:","cc:","href");
+      return str_replace($bad,"",$string);
+    }
+ 
+     
+ 
+    $email_message .= "First Name: ".clean_string($first_name)."\n";
+    $email_message .= "Last Name: ".clean_string($last_name)."\n";
+    $email_message .= "Email: ".clean_string($email_from)."\n";
+    $email_message .= "Comments: ".clean_string($comments)."\n";
+ 
+// create email headers
+$headers = 'From: '.$email_from."\r\n".
+'Reply-To: '.$email_from."\r\n" .
+'X-Mailer: PHP/' . phpversion();
+@mail($email_to, $email_subject, $email_message, $headers);  
+?>
+ 
+<!-- include your own success html here -->
+ 
+<div id="">Your message has been sent. Thank you!</div>
+ 
+<?php
+ 
+}
+?>
 </section><!-- #contact -->
 
 

@@ -6,7 +6,7 @@
   <div class="card">
     <div class="pt-3 pl-3 pb-3" style="background-color:#56b03f32"> 
         
-         <h4>Füge hier einen Titel und den Streaminglink zur Ip-Cam hinzu</h4>
+         <h4>Füge hier einen Titel und den streaming Link zur Ip-Cam hinzu</h4>
         
     </div>
     @if ($errors->any())
@@ -146,14 +146,14 @@
 <hr>
 
    <div class="form-group pt-3 pb-3" >
-    <label class="pl-3" for="image">Bild</label>
-    <input type="file" name="image">
+    <label class="pl-3" for="image"></label>
+    <input  type="file" name="image">
   </div>
 
 <hr>
 
         <div class="pl-3 pb-3">
-        {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
+        {{Form::submit('Abschicken', ['class'=>'btn btn-primary'])}}
         </div>
       {!! Form::close() !!}
     </div>

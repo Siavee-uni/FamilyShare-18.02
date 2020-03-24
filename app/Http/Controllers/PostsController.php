@@ -194,6 +194,9 @@ class PostsController extends Controller
         $post->immer = $request->has('immer') ? true : false;
         $post->timefrom = $request->input('timefrom');
         $post->timeto = $request->input('timeto');
+
+        $post->ort =$request->input('ort');
+        
         if($request->hasFile('image')){
         $post->image = $fileNameToStore;
         }

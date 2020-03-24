@@ -69,7 +69,7 @@
                                   </div>
                                 <div class="modal-footer justify-content-center">
                                   <h4 id="modal-{{$post->id}}" class="mr-4">{{$post->title}}</h4>
-                                  <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
+                                  <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Schließen</button>
                                 </div>
                               </div>
                            </div>
