@@ -43,7 +43,7 @@
                                 <tr> 
                                     <td>    @if($post->image ==="noimage.jpg")
                                                 <img style=" width:40%" class="" src="/png/videoplayer.jpg">
-                                            @else  <img style="width:40%; height:80px" class="" src="./storage/uploads/{{$post->image}}">  
+                                            @else  <img style="width:40%; height:80px" class="" src="uploads/{{$post->image}}">  
                                             @endif
                                     </td>
                                     <td>
