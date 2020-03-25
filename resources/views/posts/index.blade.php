@@ -64,8 +64,25 @@
                         data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
                     @endif
             @else   
-                  <a><img onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
-                  data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
+                    @if ($post->ort === 1) 
+                    <a><img style="width:100%" onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/img/küche.jpg" alt="video"
+                      data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
+                    @elseif ($post->ort === 2)  
+                    <a><img style="width:100%" onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/wohnzimmer.jpg" alt="video"
+                      data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
+                    @elseif ($post->ort === 3)  
+                    <a><img style="width:100%" onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/schlafzimmer.jpg" alt="video"
+                      data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
+                    @elseif ($post->ort === 4)  
+                    <a><img style="width:100%" onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/garten.jpg" alt="video"
+                      data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
+                    @elseif ($post->image ==="noimage.jpg")
+                      <a><img onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
+                        data-toggle="modal" data-target="#modal-{{$post->id}}"></a>  
+                    @else
+                        <a><img style="width:100%" onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/uploads/{{$post->image}}" alt="video"
+                        data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
+                    @endif
            @endif
           
       <div class="row pt-2">
@@ -109,39 +126,43 @@
  
  
   ?>
-  <script>
-        
-        
+  <script>  
+          setInterval("my_function();",1000); 
           
-        function test() {
-          var time = <?php echo $timenow ?>;
-          var timefrom = <?php echo $timefrom ?>; 
-          var timeto = <?php echo $timeto ?>; 
-          var timedif = <?php echo $timeto ?> - <?php echo $timenow ?>;
+          function my_function() {
+              $('#load').load('/posts');
+              };
+
+
+//  function test() {
+//           var time = <?php echo $timenow ?>;
+//           var timefrom = <?php echo $timefrom ?>; 
+//           var timeto = <?php echo $timeto ?>; 
+//           var timedif = <?php echo $timeto ?> - <?php echo $timenow ?>;
           
 
-          if (time >= timefrom && time <= timeto) {
-              var close = function() {
-                  $("#modal-{{$post->id}}").modal("hide");
-              }
-             setTimeout(close, timedif);
-             // var linka = document.getElementById("{{$post->id}}");
-             // linka.element.setAttribute("data-toggle");
-             } 
-             else 
-             {
-              document.getElementById("{{$post->id}}").removeAttribute("data-toggle");
-              alert("Sichbar um " + "<?php echo $timefrom ?>" + " Uhr");
-          }
-        }
+//           if (time >= timefrom && time <= timeto) {
+//               var close = function() {
+//                   $("#modal-{{$post->id}}").modal("hide");
+//               }
+//              setTimeout(close, timedif);
+//              // var linka = document.getElementById("{{$post->id}}");
+//              // linka.element.setAttribute("data-toggle");
+//              } 
+//              else 
+//              {
+//               document.getElementById("{{$post->id}}").removeAttribute("data-toggle");
+//               alert("Sichbar um " + "<?php echo $timefrom ?>" + " Uhr");
+//           }
+//         }
   </script>
 
   @empty 
   <div class=""style="margin-left: 14px; background-color:rgba(43, 255, 6, 0.116)">
      <h4> Momentan hast du keine Videos</h4>
   </div>
-
+</div>
   @endforelse
-  </div>
+  
   
 @endsection
