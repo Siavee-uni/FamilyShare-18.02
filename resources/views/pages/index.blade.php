@@ -14,7 +14,7 @@
       <div class=" text-left">
         <div class="container" >
         <h2 class="lead">FamilyShare macht es einfach, <br> mit ihrer Familie in Kontakt zu bleiben </h2>
-        <h2> Sprechen. Chatten. <br> Zusammensein. </h2>
+        <h2> Zuschauen. Zuhören. <br> Zusammensein. </h2>
       </div>
       </div>
     </div>
@@ -22,7 +22,7 @@
     <div class="carousel-item" style="background-image: url('img/bg3.jpg')">
       <div class=" text-left">
         <div class="container" >
-        <h2 class="lead">Menschlich & Sozial</h2> <h2> FamilyShare ist ausdruck eines tief <br> 
+        <h2 class="lead">Menschlich & Sozial</h2> <h2> FamilyShare ist Ausdruck eines tief <br> 
         sitzenden Wunsches: Mehr Lebensfreude <br> für Senioren</h2>
        
         </div>
@@ -35,7 +35,7 @@
         <div class="container" >
           <h2 class="lead"></h2> <h2> "Dank FamilyShare kann <br> 
           ich meinem Vater an schönen <br> Momenten teilhaben lassen."</h2>
-          <p style="font-size: 20px;">Laura K. - Angehörige aus Dortmund</p>
+          <p style="font-size: 20px;">Laura K. - FamilyShare Nutzerin aus Dortmund</p>
          
           
       </div>
@@ -84,8 +84,7 @@
 
           <img src="img/svg/austausch.svg" alt="img" class="img-fluid">
           <h4>Einfacher Austausch innerhalb der Familie</h4>
-          <p>Sehen und hören – in Echtzeit
-            Integrierter und regelbasierter Zuschauermodus
+          <p>Mit FamilyShare die Familie online und in Echtzeit sehen und hören. 
             </p>
          
 
@@ -95,9 +94,9 @@
       <div class="col-md-6 col-lg-4">
         <div class="feature-block">
 
-          <img src="img/svg/software.svg" alt="img" class="img-fluid">
-          <h4>Keine Software benötigt</h4>
-          <p>Bei der Familie sein wann und wo Sie möchten – dank unserer web-basierten Lösung
+          <img src="img/svg/alt.svg" alt="img" class="img-fluid">
+          <h4>Für Senioren entwickelt</h4>
+          <p> <br> Absoluter Durchblick, mit einer schlanken Bedienoberfläche und großen, kontrastreichen Symbolen
           </p>
           
 
@@ -107,10 +106,9 @@
       <div class="col-md-6 col-lg-4">
         <div class="feature-block">
 
-          <img src="img/svg/alt.svg" alt="img" class="img-fluid">
-          <h4>Für Senioren entwickelt</h4>
-          <p>Schlanke Bedienoberfläche,
-            große und kontrastreiche Symbole und Schaltflächen</p>
+          <img src="img/svg/software.svg" alt="img" class="img-fluid">
+          <h4>Regelbasiert</h4>
+          <p> <br> Wann das Zuschauen möglich sein soll, kann die Familie bequem im Regelmenü einstellen</p>
          
 
         </div>
@@ -132,7 +130,7 @@
   <div class="container">
     <div class="section-title text-center">
       <h2>Unsere Features</h2>
-      <p class="separator">#</p>
+      <p class="separator"></p>
     </div>
   </div>
 
@@ -144,7 +142,7 @@
           <img src="img/svg/werkzeug.svg" alt="img" class="img-fluid">
           <h4>Installation vor Ort
           </h4>
-          <p>Wir kommen zu Ihnen nach Hause und installieren Ihre Kamera für Sie.</p>
+          <p>Für Premium-Kunden übernehmen wir die Installation ihrer Kamera für Sie vor Ort</p>
         </div>
       </div>
 
@@ -160,7 +158,7 @@
         <div class="feature-block">
           <img src="img/svg/laptop.svg" alt="img" class="img-fluid">
           <h4>Ausgelegt für alle Geräte</h4>
-          <p>Sie wollen unsere App auf Ihrem Handy oder Tablet benutzen? Kein Problem.</p>
+          <p>Sie wollen unsere App auf Ihrem Handy oder Tablet benutzen? Kein Problem</p>
         </div>
       </div>
 
@@ -176,7 +174,7 @@
         <div class="feature-block">
           <img src="img/svg/hd.svg" alt="img" class="img-fluid">
           <h4>Full HD Support</h4>
-          <p>FamilyShare kann hochauflösende Videostreams empfangen und anzeigen.</p>
+          <p>FamilyShare kann hochauflösende Videostreams empfangen und anzeigen</p>
         </div>
       </div>
 
@@ -184,7 +182,7 @@
         <div class="feature-block">
           <img src="img/svg/schild.svg" alt="img" class="img-fluid">
           <h4>Datenschutz</h4>
-          <p>Ihre privatsphäre ist uns wichtig. Immer auf dem neusten Stand</p>
+          <p>Ihre Privatsphäre ist uns wichtig. Deshalb sind ihre Daten auf deutschen Servern gespeichert</p>
         </div>
       </div>
 
@@ -218,7 +216,7 @@
     <div class="section-title text-center">
 
       <h2>Unsere Preise</h2>
-      <p class="separator">#</p>
+      <p class="separator"></p>
 
     </div>
   </div>
@@ -229,11 +227,12 @@
       <div class="col-md-6 col-lg-4">
         <div class="block-pricing">
           <div class="table">
-            <h4>Free</h4>
+            <h4>Testversion</h4>
             <h2>Kostenlos</h2>
             <ul class="list-unstyled">
-              <li>7 Tage testen</li>
-              <li>-</li>
+              
+              <li> 14 Tage gültig</li>
+              
             </ul>
             <div class="table_btn">
               <a href="#" class="btn"></i>Jetzt ausprobieren</a>
@@ -245,15 +244,16 @@
       <div class="col-md-6 col-lg-4">
         <div class="block-pricing">
           <div class="table">
-            <h4>Business</h4>
-            <h2>5€/monat</h2>
+            <h4>Standard</h4>
+            <h2>5€ pro Monat</h2>
             <ul class="list-unstyled">
-              <li>Alle funktionen</li>
-              <li>-</li>
+              
+              <li> Alle Funktionen</li>
+            
            
             </ul>
             <div class="table_btn">
-              <a href="{{ route('register') }}" class="btn"><i class="fa fa-shopping-cart"></i>Kaufen</a>
+              <a href="{{ route('register') }}" class="btn"><i class="fa fa-shopping-cart"></i>Buchen</a>
             </div>
           </div>
         </div>
@@ -262,16 +262,15 @@
       <div class="col-md-6 col-lg-4">
         <div class="block-pricing">
           <div class="table">
-            <h4>Premium</h4>
-            <h2>50€</h2>
+            <h4>Zusatzservice</h4>
+            <h2>Einmalig 75€</h2>
             <ul class="list-unstyled">
-             
-              <li><b>Vorort</b> installation</li>
-              <li>Alle Funtionen</li>
-          
+              
+              <li> Exklusive Installation vor Ort</li>
+              
             </ul>
             <div class="table_btn">
-              <a href="{{ route('register') }}" class="btn"><i class="fa fa-shopping-cart"></i>Kaufen</a>
+              <a href="{{ route('register') }}" class="btn"><i class="fa fa-shopping-cart"></i>Buchen</a>
             </div>
           </div>
         </div>
@@ -371,7 +370,7 @@
               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
             </ul>
-            <span>manager</span>
+            <span>Manager</span>
             <h4>Noel</h4>
           </div>
         </div>
@@ -386,7 +385,7 @@
               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
             </ul>
-            <span>manager</span>
+            <span>Manager</span>
             <h4>Gabriel</h4>
           </div>
         </div>
@@ -477,7 +476,7 @@
 
           <div>
             <i class="fa fa-phone"></i>
-            <p>#</p>
+            <p>0231 135246</p>
           </div>
         </div>
 
