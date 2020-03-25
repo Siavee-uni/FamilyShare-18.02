@@ -91,7 +91,7 @@
                       <a><img onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
                         data-toggle="modal" data-target="#modal-{{$post->id}}"></a>  
                     @else
-                        <a><img style="width:100%" onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="./storage/uploads/{{$post->image}}" alt="video"
+                        <a><img style="width:100%;overflow: hidden;object-fit: cover" onclick="test()" id="{{$post->id}}" class="z-depth-1 img-thumbnail" src="/uploads/{{$post->image}}" alt="video"
                         data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
                     @endif
             @else   
@@ -104,9 +104,9 @@
                 <div class="row">
                   <h4 class="pl-3">Status:</h4>
                   @if ($post->online === 1)
-                  <h4 class="pl-2" style="color:green">Online</h4> <!--<img id="online" class="pl-2" style="height:15px" src="/png/online.png" alt="">-->
+                  <h4 class="pl-2" style="color:green">Online</h4> 
                   @else
-                  <h4 class="pl-2"style="color:red">Offline</h4><!--<img id="offline" class="pl-2" style="height:15px " src="/png/offline.png" alt=""> -->
+                  <h4 class="pl-2"style="color:red">Offline</h4>
                   @endif
                 </div>
             </div>
