@@ -4,6 +4,9 @@
 @section('content')
 <!-- Grid row -->
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
 <div class="container pt-3">
     <div class="card"style="margin-bottom: 70px;">
       <div class="pt-3 pl-3 pb-3"style="">
@@ -24,9 +27,13 @@
             <h4>Verfügbar von {{$post->timefrom}} bis {{$post->timeto}}</h4>
             @endif
   <!--Modal: Name-->
-          @php
-          $timenow = date('H.m')+1;  
-          @endphp
+  <?php
+  $timenow = date('H:m:s');
+ 
+  $timefrom = $post->timefrom;
+  $timeto = $post->timeto;
+  
+  ?>
           @if ($post->online === 1)
                   <div class="modal fade" id="modal-{{$post->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document"><!-- modal-dialog ist für die größe zuständig/styling-->
@@ -45,42 +52,42 @@
                    </div>
                    
                     @if ($post->ort === 1) 
-                    <a><img style="width:100%" onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/img/küche.jpg" alt="video"
+                    <a><img style="width:100%" onclick="timer({{ $post->id }}, '{{ $timefrom }}', '{{ $timeto }}', '{{ $timenow }}')" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/img/küche.jpg" alt="video"
                       data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
                     @elseif ($post->ort === 2)  
-                    <a><img style="width:100%" onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/wohnzimmer.jpg" alt="video"
+                    <a><img style="width:100%" onclick="timer({{ $post->id }}, '{{ $timefrom }}', '{{ $timeto }}', '{{ $timenow }}')" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/wohnzimmer.jpg" alt="video"
                       data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
                     @elseif ($post->ort === 3)  
-                    <a><img style="width:100%" onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/schlafzimmer.jpg" alt="video"
+                    <a><img style="width:100%" onclick="timer({{ $post->id }}, '{{ $timefrom }}', '{{ $timeto }}', '{{ $timenow }}')" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/schlafzimmer.jpg" alt="video"
                       data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
                     @elseif ($post->ort === 4)  
-                    <a><img style="width:100%" onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/garten.jpg" alt="video"
+                    <a><img style="width:100%" onclick="timer({{ $post->id }}, '{{ $timefrom }}', '{{ $timeto }}', '{{ $timenow }}')" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/garten.jpg" alt="video"
                       data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
                     @elseif ($post->image ==="noimage.jpg")
-                      <a><img onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
+                      <a><img onclick="timer({{ $post->id }}, '{{ $timefrom }}', '{{ $timeto }}', '{{ $timenow }}')" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
                         data-toggle="modal" data-target="#modal-{{$post->id}}"></a>  
                     @else
-                        <a><img style="width:100%" onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/uploads/{{$post->image}}" alt="video"
+                        <a><img style="width:100%" onclick="timer({{ $post->id }}, '{{ $timefrom }}', '{{ $timeto }}', '{{ $timenow }}')" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/uploads/{{$post->image}}" alt="video"
                         data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
                     @endif
             @else   
                     @if ($post->ort === 1) 
-                    <a><img style="width:100%" onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/img/küche.jpg" alt="video"
+                    <a><img style="width:100%" onclick="timer({{ $post->id }}, '{{ $timefrom }}', '{{ $timeto }}', '{{ $timenow }}')" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/img/küche.jpg" alt="video"
                       data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
                     @elseif ($post->ort === 2)  
-                    <a><img style="width:100%" onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/wohnzimmer.jpg" alt="video"
+                    <a><img style="width:100%" onclick="timer({{ $post->id }}, '{{ $timefrom }}', '{{ $timeto }}', '{{ $timenow }}')" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/wohnzimmer.jpg" alt="video"
                       data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
                     @elseif ($post->ort === 3)  
-                    <a><img style="width:100%" onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/schlafzimmer.jpg" alt="video"
+                    <a><img style="width:100%" onclick="timer({{ $post->id }}, '{{ $timefrom }}', '{{ $timeto }}', '{{ $timenow }}')" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/schlafzimmer.jpg" alt="video"
                       data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
                     @elseif ($post->ort === 4)  
-                    <a><img style="width:100%" onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/garten.jpg" alt="video"
+                    <a><img style="width:100%" onclick="timer({{ $post->id }}, '{{ $timefrom }}', '{{ $timeto }}', '{{ $timenow }}')" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/garten.jpg" alt="video"
                       data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
                     @elseif ($post->image ==="noimage.jpg")
-                      <a><img onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
+                      <a><img onclick="timer({{ $post->id }}, '{{ $timefrom }}', '{{ $timeto }}', '{{ $timenow }}')" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
                         data-toggle="modal" data-target="#modal-{{$post->id}}"></a>  
                     @else
-                        <a><img style="width:100%" onclick="test()" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/uploads/{{$post->image}}" alt="video"
+                        <a><img style="width:100%" onclick="timer({{ $post->id }}, '{{ $timefrom }}', '{{ $timeto }}', '{{ $timenow }}')" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/uploads/{{$post->image}}" alt="video"
                         data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
                     @endif
            @endif
@@ -111,52 +118,6 @@
         </div>
       </div>
   </div>
- 
- 
-  <!-- Grid column -->
-
-  <?php
- 
-  $timenow = date('H.m')+1;
- 
-  $timefrom = $post->timefrom;
-  $timeto = $post->timeto;
-  
-  
- 
- 
-  ?>
-  <script>  
-          setInterval("my_function();",1000); 
-          
-          function my_function() {
-              $('#load').load('/posts');
-              };
-
-
-//  function test() {
-//           var time = <?php echo $timenow ?>;
-//           var timefrom = <?php echo $timefrom ?>; 
-//           var timeto = <?php echo $timeto ?>; 
-//           var timedif = <?php echo $timeto ?> - <?php echo $timenow ?>;
-          
-
-//           if (time >= timefrom && time <= timeto) {
-//               var close = function() {
-//                   $("#modal-{{$post->id}}").modal("hide");
-//               }
-//              setTimeout(close, timedif);
-//              // var linka = document.getElementById("{{$post->id}}");
-//              // linka.element.setAttribute("data-toggle");
-//              } 
-//              else 
-//              {
-//               document.getElementById("{{$post->id}}").removeAttribute("data-toggle");
-//               alert("Sichbar um " + "<?php echo $timefrom ?>" + " Uhr");
-//           }
-//         }
-  </script>
-
   @empty 
   <div class=""style="margin-left: 14px; background-color:rgba(43, 255, 6, 0.116)">
      <h4> Momentan hast du keine Videos</h4>
@@ -164,5 +125,54 @@
 </div>
   @endforelse
   
+
+ 
+  <script>  
+
+// function msToTime(s) {
+//         if (s > 0) {
+    //     var ms = s % 1000;
+    //     s = (s - ms) / 1000;
+    //     var secs = s % 60;
+    //     s = (s - secs) / 60;
+    //     var mins = s % 60;
+    //     var hrs = (s - mins) / 60;
+
+    //     return hrs + ':' + mins + ':' + secs + '.' + ms;
+    //     }
+    //     else
+    //     {
+    //       return "wait"
+    //     }
+    // }
+
+      function timer (postid, timefrom, timeto, timenow){
+
+      let from = new Date(Date.parse("2020/3/27" + timefrom));
+      let to = new Date(Date.parse("2020/3/27" + timefrom));
+      let now = new Date(Date.parse("2020/3/27" + timefrom));
+
+      let froma = Date.parse("2020/3/27" + timefrom);
+      let toa = Date.parse("2020/3/27" + timefrom);
+      let nowa = Date.parse("2020/3/27" + timefrom);
+      
+      console.log(to);
+      
+      let timediffinmilisec = to - now ;
+      alert(froma + "----"+ from+"---"+timefrom );  
+         if (nowa >= froma && nowa <= toa) {
+              var close = function() {
+                 $("#modal-"+postid).modal("hide");
+              }
+              setTimeout(close, timediffinmilisec);
+              alert("window closes in" + msToTime(timediffinmilisec))
+              } 
+              else 
+              {
+              document.getElementById(postid).removeAttribute("data-toggle");
+              alert("Come back at " + timefrom);
+           }
+      };
+</script>
   
 @endsection

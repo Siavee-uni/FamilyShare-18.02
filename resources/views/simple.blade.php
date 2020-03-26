@@ -42,7 +42,7 @@
 <div class="container pt-4">
   <div class="card"style="margin-bottom: 70px;">
     <div class="text-center"style="margin-bottom: 10px;margin-top: 10px;margin-left: 10px;">
-    <h2>Um den Stream zu starten klicke auf eins der Videos</h2>
+    <h2>Um den Stream zu starten, klicken Sie auf eines der Videos</h2>
     </div>
   </div>
       <div class="row text-center">
@@ -145,7 +145,7 @@
   <!-- Grid column -->
   @empty 
   <div class=""style="margin-left: 14px">
-     <h4> You have no posts at the moment. </h4>
+     <h4> Momentan haben Sie keine Streams. </h4>
     </div>
   @endforelse
   </div>

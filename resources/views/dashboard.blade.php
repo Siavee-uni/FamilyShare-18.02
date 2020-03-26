@@ -7,8 +7,8 @@
         <div class=""style="margin-bottom: 20px;">
             <div class="pt-3 pl-3 pb-3" style="background-color:"> 
                 <h2>Alle deine Kameras im Überblick</h2> <br>
-                <h4>Hier geht es zum SimpleMode - die übersichtliche Benutzeroberfläche für Senioren</h4><a href=""><h4 style="color:green;text-transform: lowercase;">family-share.de/simple</h4></a> <br>
-                <h5>Hinweis: Eine vorhandene Anfrage wird angezeigt sobald bei einem Stream auf Freischalten geklickt wurde.</h5>
+                <h4>Teile diesen Link mit deinen Lieblings-Senioren, um sie mit deinen FamilyShare Account zu verbinden </h4><a href=""><h4 style="color:green;text-transform: lowercase;">family-share.de/simple</h4></a> <br>
+                <h5>Hinweis: Eine vorhandene Anfrage wird angezeigt, sobald bei einem Stream auf Freischalten geklickt wurde.</h5>
                
            </div>
            <hr>
@@ -30,12 +30,12 @@
                         <thead>
                             <tr>
                               <th scope="col"><h5 class="">Video</h5>  </th>
-                              <th scope="col"><h5 class="">Status:</h5></th>
+                              <th scope="col"><h5 class="">Status</h5></th>
                               <th scope="col"><h5 class="text-center">Anfragen</h5></th>
-                              <th scope="col"><h5 class="text-center">#</h5></th>
+                              <th scope="col"><h5 class="text-center"></h5></th>
                               <th scope="col"><h5 class="">Ort</h5></th>
-                              <th scope="col"><h5 class="text-center">#</h5></th>
-                              <th scope="col"><h5 class="text-center">#</h5></th>
+                              <th scope="col"><h5 class="text-center"></h5></th>
+                              <th scope="col"><h5 class="text-center"></h5></th>
                             </tr>
                           </thead>
                           <tbody>
@@ -76,7 +76,7 @@
                                         @endif
                                     <td> <div class="pt-4" style=""><h4>{{$post->title}}</h4></div></td>
                                     
-                                    <td><div class="pt-4"><a href="/posts/{{$post->id}}/edit" class="button">Edit</a></td></div>
+                                    <td><div class="pt-4"><a href="/posts/{{$post->id}}/edit" class="button">Bearbeiten</a></td></div>
                                     <td>
                                         {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
                                             {{Form::hidden('_method', 'DELETE')}}

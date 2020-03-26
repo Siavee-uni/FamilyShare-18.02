@@ -82,9 +82,9 @@
       <div class="col-md-6 col-lg-4">
         <div class="feature-block">
 
-          <img src="img/svg/austausch.svg" alt="img" class="img-fluid">
-          <h4>Einfacher Austausch innerhalb der Familie</h4>
-          <p>Mit FamilyShare die Familie online und in Echtzeit sehen und hören. 
+          <img src="img/svg/smile.svg" alt="img" class="img-fluid">
+          <h4>Zusammensein</h4>
+          <p>Mit FamilyShare die Familie online und in Echtzeit sehen und hören 
             </p>
          
 
@@ -503,7 +503,7 @@
               <div class="validation"></div>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Tittel" data-rule="minlen:4" />
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Titel" data-rule="minlen:4" />
               <div class="validation"></div>
             </div>
             <div class="form-group">

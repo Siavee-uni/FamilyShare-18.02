@@ -6,7 +6,7 @@
   <div class="card">
     <div class="pt-3 pl-3 pb-3" style="background-color:#56b03f32"> 
         
-         <h4>Füge hier einen Titel und den streaming Link zur Ip-Cam hinzu</h4>
+         <h4>Füge hier einen Titel und den streaming Link zur Kamera hinzu</h4>
         
     </div>
     @if ($errors->any())
@@ -117,7 +117,7 @@
   </div>
 <!-- Bild wählen----------------------------------------------------------->
   <div class="pt-3 pl-3 pb-3"style="background-color:#56b03f32">  
-    <h4>Optional: Wähle ein Bereich für den Stream oder lade ein thumbnail hoch</h4>
+    <h4>Optional: Wähle einen Bereich für den Stream oder lade einen thumbnail hoch</h4>
   </div>
 
 <div class="row">
