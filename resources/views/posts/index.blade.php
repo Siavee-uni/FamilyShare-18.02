@@ -159,7 +159,7 @@
       
 
   function timer (postid, timefrom, timeto, timenow) {
-      if (timefrom == '00:00:00' || timeto == '00:00:00'){
+      if (timefrom == '00:00:00' && timeto == '00:00:00'){
         console.log(timenow);
         
         }
