@@ -107,8 +107,17 @@ class PostsController extends Controller
             $timeto = str_replace(":", ".",$request->get('timeto'));
         }*/
         
-        
-    
+        if (Empty($request->input('timeto')) || Empty($request->input('timefrom')) )
+        {
+            $timefrom = "00:00:00";
+            $timeto = "00:00:00";
+
+        }
+        else
+        {
+            $timefrom = $request->input('timefrom');
+            $timeto = $request->input('timeto');
+        }
         // Create Post
         $post = new Post;
         $post->title = $request->input('title');
@@ -123,8 +132,8 @@ class PostsController extends Controller
         $post->sunday = $request->has('sunday') ? 7 : 0;
         $post->immer = $request->has('immer') ? true : false;
 
-        $post->timefrom = $request->input('timefrom');
-        $post->timeto = $request->input('timeto');
+        $post->timefrom = $timefrom;
+        $post->timeto = $timeto;
 
         $post->ort =$request->input('ort');
        

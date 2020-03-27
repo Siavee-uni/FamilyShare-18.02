@@ -27,8 +27,7 @@
             <h4>Verfügbar von {{$post->timefrom}} bis {{$post->timeto}}</h4>
             @endif
   <!--Modal: Name-->
-  <div id="zeit">
-  <div id="phpzeit">
+  
   <?php
   $timenow = date('H:m:s');
  
@@ -36,7 +35,7 @@
   $timeto = $post->timeto;
   
   ?>
-  </div></div>
+ 
           @if ($post->online === 1)
                   <div class="modal fade" id="modal-{{$post->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document"><!-- modal-dialog ist für die größe zuständig/styling-->
@@ -129,13 +128,16 @@
   @endforelse
   
 
- 
   <script>  
 
-  // setInterval("my_function();",5000); 
   // function my_function(){
-  //   $('#zeit').load("/posts" + '#phpzeit');
-  //   }
+  // $('#zeit').load("/posts" + '#phpzeit');
+  // }
+
+  // $( document ).ready(function() {
+  // setInterval("my_function();",5000); 
+  // });
+  
 
  function msToTime(s) {
          if (s > 0) {
@@ -156,29 +158,34 @@
       // refresh now time every 5 seconds
       
 
-      function timer (postid, timefrom, timeto, timenow){
-
+  function timer (postid, timefrom, timeto, timenow) {
+      if (timefrom == '00:00:00' || timeto == '00:00:00'){
+        console.log(timenow);
+        
+        }
+      else{    
       let from = new Date(Date.parse("2020/3/27 " + timefrom));
       let to = new Date(Date.parse("2020/3/27 " + timeto));
       let now = new Date(Date.parse("2020/3/27 " + timenow));
       
       let timediffinmilisec = to - now - 3600000 ;
-
-      console.log(now);
-      
-         if (from <= now && now <= to) {
+      console.log(timenow);
+        
+     
+       
+              if (from <= now && now <= to) {
               var close = function() {
                  $("#modal-" + postid).modal("hide");
               }
               setTimeout(close, timediffinmilisec);
-              
-              alert("Stream schließ sich in " + msToTime(timediffinmilisec))
+              alert("Stream schließ sich in " + msToTime(timediffinmilisec));
               } 
               else 
               {
               document.getElementById(postid).removeAttribute("data-toggle");
               alert("Stream startet um " + timefrom);
-           }
+              }
+      }
       };
 </script>
   
