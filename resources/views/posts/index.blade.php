@@ -151,15 +151,10 @@
       let from = new Date(Date.parse("2020/3/27 " + timefrom));
       let to = new Date(Date.parse("2020/3/27 " + timeto));
       let now = new Date(Date.parse("2020/3/27 " + timenow));
-
-      let froma = Date.parse(from);
-      let toa = Date.parse(to);
-      let nowa = Date.parse(now);
-      
-      console.log(froma,toa,nowa);
       
       let timediffinmilisec = to - now - 3600000 ;
 
+      console.log(now);
       
          if (from <= now && now <= to) {
               var close = function() {
@@ -172,7 +167,7 @@
               else 
               {
               document.getElementById(postid).removeAttribute("data-toggle");
-              alert("Come back at " + timefrom);
+              alert("Stream startet um " + timefrom);
            }
       };
 </script>
