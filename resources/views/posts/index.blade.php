@@ -21,7 +21,7 @@
   <!-- Grid column -->
         <div class="col-lg-4 col-md-12 mb-4"> <!-- mb = margin bottom-->
             <h4>Ort: {{$post->title}}</h4>
-            @if (empty($post->timefrom))
+            @if ($post->timefrom == '00:00:00' && $post->timeto == '00:00:00')
             <h4>keine Zeit festgelegt</h4>
             @else 
             <h4>Verfügbar von {{$post->timefrom}} bis {{$post->timeto}}</h4>
@@ -29,11 +29,11 @@
   <!--Modal: Name-->
   
   <?php
-  $timenow = date('H:m:s');
+  date_default_timezone_set('Europe/Berlin');
+  $timenow = date('H:i:s');
  
   $timefrom = $post->timefrom;
   $timeto = $post->timeto;
-  
   ?>
  
           @if ($post->online === 1)
@@ -168,8 +168,8 @@
       let to = new Date(Date.parse("2020/3/27 " + timeto));
       let now = new Date(Date.parse("2020/3/27 " + timenow));
       
-      let timediffinmilisec = to - now - 3600000 ;
-      console.log(timenow);
+      let timediffinmilisec = to - now; //- 3600000
+      console.log(now);
         
      
        
