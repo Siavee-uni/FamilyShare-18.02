@@ -27,6 +27,8 @@
             <h4>Verfügbar von {{$post->timefrom}} bis {{$post->timeto}}</h4>
             @endif
   <!--Modal: Name-->
+  <div id="zeit">
+  <div id="phpzeit">
   <?php
   $timenow = date('H:m:s');
  
@@ -34,6 +36,7 @@
   $timeto = $post->timeto;
   
   ?>
+  </div></div>
           @if ($post->online === 1)
                   <div class="modal fade" id="modal-{{$post->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document"><!-- modal-dialog ist für die größe zuständig/styling-->
@@ -129,6 +132,11 @@
  
   <script>  
 
+  // setInterval("my_function();",5000); 
+  // function my_function(){
+  //   $('#zeit').load("/posts" + '#phpzeit');
+  //   }
+
  function msToTime(s) {
          if (s > 0) {
          var ms = s % 1000;
@@ -145,6 +153,8 @@
           return "wait"
          }
      }
+      // refresh now time every 5 seconds
+      
 
       function timer (postid, timefrom, timeto, timenow){
 
