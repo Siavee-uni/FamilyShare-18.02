@@ -129,43 +129,45 @@
  
   <script>  
 
-// function msToTime(s) {
-//         if (s > 0) {
-    //     var ms = s % 1000;
-    //     s = (s - ms) / 1000;
-    //     var secs = s % 60;
-    //     s = (s - secs) / 60;
-    //     var mins = s % 60;
-    //     var hrs = (s - mins) / 60;
+ function msToTime(s) {
+         if (s > 0) {
+         var ms = s % 1000;
+         s = (s - ms) / 1000;
+         var secs = s % 60;
+         s = (s - secs) / 60;
+         var mins = s % 60;
+         var hrs = (s - mins) / 60;
 
-    //     return hrs + ':' + mins + ':' + secs + '.' + ms;
-    //     }
-    //     else
-    //     {
-    //       return "wait"
-    //     }
-    // }
+         return hrs + ' Stunde und ' + mins + ' minuten';
+         }
+        else
+         {
+          return "wait"
+         }
+     }
 
       function timer (postid, timefrom, timeto, timenow){
 
-      let from = new Date(Date.parse("2020/3/27" + timefrom));
-      let to = new Date(Date.parse("2020/3/27" + timefrom));
-      let now = new Date(Date.parse("2020/3/27" + timefrom));
+      let from = new Date(Date.parse("2020/3/27 " + timefrom));
+      let to = new Date(Date.parse("2020/3/27 " + timeto));
+      let now = new Date(Date.parse("2020/3/27 " + timenow));
 
-      let froma = Date.parse("2020/3/27" + timefrom);
-      let toa = Date.parse("2020/3/27" + timefrom);
-      let nowa = Date.parse("2020/3/27" + timefrom);
+      let froma = Date.parse(from);
+      let toa = Date.parse(to);
+      let nowa = Date.parse(now);
       
-      console.log(to);
+      console.log(froma,toa,nowa);
       
-      let timediffinmilisec = to - now ;
-      alert(froma + "----"+ from+"---"+timefrom );  
-         if (nowa >= froma && nowa <= toa) {
+      let timediffinmilisec = to - now - 3600000 ;
+
+      
+         if (from <= now && now <= to) {
               var close = function() {
-                 $("#modal-"+postid).modal("hide");
+                 $("#modal-" + postid).modal("hide");
               }
               setTimeout(close, timediffinmilisec);
-              alert("window closes in" + msToTime(timediffinmilisec))
+              
+              alert("Stream schließ sich in " + msToTime(timediffinmilisec))
               } 
               else 
               {
