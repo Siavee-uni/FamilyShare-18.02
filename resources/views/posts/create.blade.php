@@ -101,7 +101,7 @@
         </div> 
 
         <input type="time" id="" name="timefrom" style="height:30px"
-         min="0" max="24" placeholder="15:00:00">  
+         min="00:00" max="23:59" placeholder="15:00">  
         
         <div class=""style="margin-left: 15px;margin-top: 2px; margin-right: 15px">
         <p>bis</p>
@@ -109,7 +109,7 @@
 
 
        <input type="time" id="" name="timeto"  style="height:30px"
-        min="0" max="24" placeholder="20:00:00">
+        min="00:00" max="23:59" placeholder="20:00">
 
        <div class=""style="margin-left: 15px;margin-top:2px; margin-right: 15px">
             <p>Uhr</p>
