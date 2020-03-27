@@ -23,7 +23,7 @@
     @csrf
         <div class="form-group pl-3 pt-3 pr-3">
             
-            {{Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Tittel'])}}
+            {{Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Titel'])}}
         </div>
 
         <div class="form-group pl-3 pr-3">
