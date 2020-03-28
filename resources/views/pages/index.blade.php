@@ -493,7 +493,7 @@
       <div class="col-lg-5 col-md-8">
         <div class="form">
           <div id="errormessage"></div>
-          <form name="contactform" method="post" action="email">
+          <form name="contactform" method="post" action="#email">
             <div class="form-group">
               <input type="text" name="name" class="form-control" id="name" placeholder="Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
               <div class="validation"></div>
@@ -594,7 +594,7 @@ $headers = 'From: '.$email_from."\r\n".
  
 <!-- include your own success html here -->
  
-<div id="">Your message has been sent. Thank you!</div>
+<div id="email">Your message has been sent. Thank you!</div>
  
 <?php
  

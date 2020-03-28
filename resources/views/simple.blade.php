@@ -51,7 +51,7 @@
         <!-- Grid column -->
               <div class="col-lg-6 col-md-12 mb-4"> <!-- mb = margin bottom-->
                   <h3>Ort: {{$post->title}}</h3>
-                  @if (empty($post->timefrom))
+                  @if ($post->timefrom == '00:00:00' && $post->timeto == '00:00:00')
                   <h3>keine Zeit festgelegt</h3>
                   @else 
                   <h3>Verfügbar von {{$post->timefrom}} bis {{$post->timeto}}</h3>
