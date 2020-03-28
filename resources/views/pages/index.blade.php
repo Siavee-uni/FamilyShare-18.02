@@ -518,11 +518,11 @@
   </div>
   <!-- E-mail script------------------------------------------->
 <?php
-if(isset($_POST['email'])) {
+if(isset($_POST['submit'])) {
  
     // EDIT THE 2 LINES BELOW AS REQUIRED
     $email_to = "info@family-share.de";
-    $email_subject = "FamilyShare";
+    $email_subject = "FamilyShare Kontaktformular";
  
     function died($error) {
         // your error code can go here
