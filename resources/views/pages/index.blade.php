@@ -520,20 +520,9 @@
 <?php
 if(isset($_POST['submit'])) {
  
-    // EDIT THE 2 LINES BELOW AS REQUIRED
-    $email_to = "info@family-share.de";
+    $email_to = "gloehner@gmx.net";
     $email_subject = "FamilyShare Kontaktformular";
- 
-    function died($error) {
-        // your error code can go here
-        echo "We are very sorry, but there were error(s) found with the form you submitted. ";
-        echo "These errors appear below.<br /><br />";
-        echo $error."<br /><br />";
-        echo "Please go back and fix these errors.<br /><br />";
-        die();
-    }
- 
- 
+
     // validation expected data exists
     if(!isset($_POST['name']) ||
         !isset($_POST['email']) ||
@@ -542,15 +531,11 @@ if(isset($_POST['submit'])) {
         died('We are sorry, but there appears to be a problem with the form you submitted.');       
     }
  
-     
- 
-    $first_name = $_POST['name']; // required
-    $last_name = $_POST['email']; // required
-    $email_from = $_POST['subject']; // required // not required
+    $name = $_POST['name']; // required
+    $mail = $_POST['email']; // required
+    $subject = $_POST['subject']; // required // not required
     $comments = $_POST['message']; // required
  
-    $error_message = "";
-    $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
  
   if(!preg_match($email_exp,$email_from)) {
     $error_message .= 'The Email Address you entered does not appear to be valid.<br />';
@@ -578,28 +563,22 @@ if(isset($_POST['submit'])) {
       return str_replace($bad,"",$string);
     }
  
-     
- 
-    $email_message .= "First Name: ".clean_string($first_name)."\n";
-    $email_message .= "Last Name: ".clean_string($last_name)."\n";
-    $email_message .= "Email: ".clean_string($email_from)."\n";
+    $email_message .= "First Name: ".clean_string($name)."\n";
+    $email_message .= "Email: ".clean_string($mail)."\n";
+    $email_message .= "Subject: ".clean_string($subject)."\n";
     $email_message .= "Comments: ".clean_string($comments)."\n";
  
 // create email headers
-$headers = 'From: '.$email_from."\r\n".
-'Reply-To: '.$email_from."\r\n" .
-'X-Mailer: PHP/' . phpversion();
-@mail($email_to, $email_subject, $email_message, $headers);  
+$headers = 'From: '.$mail;
+@mail($email_to, $subject, $email_message, $headers);  
+
+header("Location: posts?mailsend")
 ?>
  
 <!-- include your own success html here -->
  
 <div id="email">Your message has been sent. Thank you!</div>
  
-<?php
- 
-}
-?>
 </section><!-- #contact -->
 
 
