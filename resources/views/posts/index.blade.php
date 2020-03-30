@@ -11,9 +11,9 @@
   <div id="autotime" class="text-right pb-3">18:00:00</div>
     <div class="card"style="margin-bottom: 70px;">
       <div class="pt-3 pl-3 pb-3"style="">
-      <h4><li>klick <a href="/posts/create" class="btn btn-outline-primary btn-rounded btn-md ml-2 mr-2">hier</a> um eine neue Kamera hinzuzufügen.</h4>
+      <h4><li style="color:black">klick <a href="/posts/create" class="btn btn-outline-primary btn-rounded btn-md ml-2 mr-2">hier</a> um eine neue Kamera hinzuzufügen. Schauen sie <a href="/#tutorial">hier</a> unser Tutorial <a href="/#tutorial">Video</a></h4>
       
-      <h4><li>Um den Stream zu starten klicke auf eins der Videos.</h4>
+      <h4><li style="color:black">Tipp: Um den Stream zu starten klicke auf eins der Videos.</h4>
       </div>
     </div>
       <div class="row text-center">
