@@ -21,7 +21,7 @@
   @forelse($posts as $post)
   <!-- Grid column -->
         <div class="col-lg-4 col-md-12 mb-4"> <!-- mb = margin bottom-->
-            <h4>Ort: {{$post->title}}</h4>
+            <h4>Titel: {{$post->title}}</h4>
             @if ($post->timefrom == '00:00:00' && $post->timeto == '00:00:00')
             <h4>keine Zeit festgelegt</h4>
             @else 
