@@ -33,7 +33,7 @@
                               <th scope="col"><h5 class="">Status</h5></th>
                               <th scope="col"><h5 class="text-center">Anfragen</h5></th>
                               <th scope="col"><h5 class="text-center"></h5></th>
-                              <th scope="col"><h5 class="">Ort</h5></th>
+                              <th scope="col"><h5 class="">Titel</h5></th>
                               <th scope="col"><h5 class="text-center"></h5></th>
                               <th scope="col"><h5 class="text-center"></h5></th>
                             </tr>

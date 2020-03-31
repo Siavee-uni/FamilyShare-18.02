@@ -185,7 +185,7 @@
                  $("#modal-" + postid).modal("hide");
               }
               setTimeout(close, timediffinmilisec);
-              alert("Stream schließ sich in " + msToTime(timediffinmilisec));
+              alert("Stream schließt sich in " + msToTime(timediffinmilisec));
               } 
               else 
               {

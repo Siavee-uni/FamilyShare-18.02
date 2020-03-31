@@ -136,7 +136,7 @@
 <div class="col text-right">
 @if ($post->online === 0)
 
-    {!! Form::open(['action' => ['PostsController@anfrage', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+    {!! Form::open(['action' => ['PostsController@anfragesimple', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     <button class="green button" style="height: 25px" type="submit">Stream freischalten</button>
     <input name="anfrage" value="1" style="visibility: hidden">
     {!! Form::close() !!}
@@ -225,7 +225,7 @@ let timediffinmilisec = to - now; //- 3600000
        $("#modal-" + postid).modal("hide");
     }
     setTimeout(close, timediffinmilisec);
-    alert("Stream schließ sich in " + msToTime(timediffinmilisec));
+    alert("Stream schließt sich in " + msToTime(timediffinmilisec));
     } 
     else 
     {

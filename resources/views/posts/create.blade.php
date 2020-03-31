@@ -85,14 +85,16 @@
   </fieldset>
 
 
-        <div class="" style="">
+        <div class="pb-3" style="">
           <div class="col">
             <input type="checkbox" id="checkme" name="immer" onclick="checkboxme()">
             <label style="font-weight:bold" for="sasquatch">Jeden Tag</label>
           </div>
         </div>
       
-    
+        <div class="pt-3 pl-3 pb-3"style="background-color:#56b03f32">  
+          <h4>Optional: Wähle einen Timeslot für den Stream</h4>
+        </div>
     <!-- Time------------------------------>
     <div class="row pl-3"style="margin-top: 20px">  
         

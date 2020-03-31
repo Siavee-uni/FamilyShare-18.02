@@ -222,7 +222,7 @@ class PostsController extends Controller
         $post->anfrage = "0";
         $post->save();
         
-        return redirect('/posts')->with('success', 'Post Updated');
+        return redirect('/dashboard')->with('success', 'Post Updated');
     }
 
     public function anfrage(Request $request, $id)
@@ -234,6 +234,17 @@ class PostsController extends Controller
         $post->save();
         
         return redirect('/posts');
+    }
+
+    public function anfragesimple(Request $request, $id)
+    {
+        $post = Post::find($id);
+    
+        $post->anfrage = $request->input('anfrage');
+
+        $post->save();
+        
+        return redirect('/simple');
     }
 
     public function destroy($id)
