@@ -87,10 +87,10 @@
                     <a><img style="width:100%; opacity: 0.5" onclick="timer({{ $post->id }}, '{{ $timefrom }}', '{{ $timeto }}')" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/garten.jpg" alt="video"
                       data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
                     @elseif ($post->image ==="noimage.jpg")
-                      <a><img onclick="timer({{ $post->id }}, '{{ $timefrom }}', '{{ $timeto }}')" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
+                      <a><img style="opacity: 0.5" onclick="timer({{ $post->id }}, '{{ $timefrom }}', '{{ $timeto }}')" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/png/videoplayer.jpg" alt="video"
                         data-toggle="modal" data-target="#modal-{{$post->id}}"></a>  
                     @else
-                        <a><img style="width:100%" onclick="timer({{ $post->id }}, '{{ $timefrom }}', '{{ $timeto }}')" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/uploads/{{$post->image}}" alt="video"
+                        <a><img style="width:100% opacity: 0.5" onclick="timer({{ $post->id }}, '{{ $timefrom }}', '{{ $timeto }}')" id="{{$post->id}}"class="z-depth-1 img-thumbnail" src="/uploads/{{$post->image}}" alt="video"
                         data-toggle="modal" data-target="#modal-{{$post->id}}"></a>
                     @endif
            @endif
