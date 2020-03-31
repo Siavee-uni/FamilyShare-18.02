@@ -23,7 +23,7 @@
         <div class="col-lg-4 col-md-12 mb-4"> <!-- mb = margin bottom-->
             <h4>Titel: {{$post->title}}</h4>
             @if ($post->timefrom == '00:00:00' && $post->timeto == '00:00:00')
-            <h4>keine Zeit festgelegt</h4>
+            <h4>Ganztätig verfügbar</h4>
             @else 
             <h4>Verfügbar von {{$post->timefrom}} bis {{$post->timeto}}</h4>
             @endif
