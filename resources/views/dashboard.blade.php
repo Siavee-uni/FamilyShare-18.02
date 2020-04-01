@@ -57,10 +57,25 @@
                           <tbody>
                             @foreach($posts as $post)
                                 <tr> 
-                                    <td>    @if($post->image ==="noimage.jpg")
-                                                <img style=" width:40%" class="" src="/png/videoplayer.jpg">
-                                            @else  <img style="width:40%; height:80px" class="" src="uploads/{{$post->image}}">  
-                                            @endif
+                                    <td>    @if ($post->ort === 1) 
+                                        <a><img style="width:40%" class="width:40%" src="/img/küche.jpg" alt="video"
+                                          ></a>
+                                        @elseif ($post->ort === 2)  
+                                        <a><img style="width:40%" class="width:40%" src="/png/wohnzimmer.jpg" alt="video"
+                                          ></a>
+                                        @elseif ($post->ort === 3)  
+                                        <a><img style="width:40%" class="width:40%" src="/png/schlafzimmer.jpg" alt="video"
+                                          ></a>
+                                        @elseif ($post->ort === 4)  
+                                        <a><img style="width:40%" class="" src="/png/garten.jpg" alt="video"
+                                          ></a>
+                                        @elseif ($post->image ==="noimage.jpg")
+                                          <a><img style="width:40%" class="" src="/png/videoplayer.jpg" alt="video"
+                                            ></a>  
+                                        @else
+                                            <a><img style="width:40%" class="" src="/uploads/{{$post->image}}" alt="video"
+                                            ></a>
+                                        @endif  
                                     </td>
                                     <td>
                                         @if ($post->online === 1)
