@@ -228,11 +228,22 @@ class PostsController extends Controller
     public function anfrage(Request $request, $id)
     {
         $post = Post::find($id);
+        $email = auth()->user()->email;
+
+        $to      = $email;
+        $subject = 'the subject';
+        $message = 'hello';
+        $headers = 'From: webmaster@example.com' . "\r\n" .
+            'Reply-To: webmaster@example.com' . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+
+        mail($to, $subject, $message, $headers);
+        
     
         $post->anfrage = $request->input('anfrage');
 
         $post->save();
-        
+  
         return redirect('/posts');
     }
 
