@@ -107,14 +107,14 @@
           </div>
       </div>
         <div class="col text-right">
-          @if ($post->online === 0)
+          @if ($post->online == 0 && $post->anfrage == 0)
 
               {!! Form::open(['action' => ['PostsController@anfrage', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
               <button class="green button" style="height: 25px" type="submit">Stream freischalten</button>
               <input name="anfrage" value="1" style="visibility: hidden">
               {!! Form::close() !!}
-              
-          @elseif ($post->online === 0 && $post->anfrage === 1)
+        
+          @elseif ($post->online == 0 && $post->anfrage == 1)
              <button class="" style="height: 25px" type="submit" disabled><h5>anfrage versendet</h5></button>
           @else
           @endif

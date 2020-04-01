@@ -134,7 +134,7 @@
 </div>
 </div>
 <div class="col text-right">
-@if ($post->online === 0)
+ @if ($post->online == 0 && $post->anfrage == 0)
 
     {!! Form::open(['action' => ['PostsController@anfragesimple', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     <button class="green button" style="height: 25px" type="submit">Stream freischalten</button>
