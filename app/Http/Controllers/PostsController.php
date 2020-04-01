@@ -230,6 +230,10 @@ class PostsController extends Controller
         $post = Post::find($id);
         $email = auth()->user()->email;
 
+        $post->anfrage = $request->input('anfrage');
+
+        $post->save();
+
         $to      = $email;
         $subject = 'the subject';
         $message = 'hello';
@@ -238,12 +242,7 @@ class PostsController extends Controller
             'X-Mailer: PHP/' . phpversion();
 
         mail($to, $subject, $message, $headers);
-        
-    
-        $post->anfrage = $request->input('anfrage');
-
-        $post->save();
-  
+      
         return redirect('/posts');
     }
 
