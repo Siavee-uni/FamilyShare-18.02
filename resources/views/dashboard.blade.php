@@ -9,6 +9,23 @@
                 <h2>Alle deine Kameras im Überblick</h2> <br>
                 <h4>Teile diesen Link mit deinen Lieblings-Senioren, um sie mit deinen FamilyShare Account zu verbinden </h4><a href=""><h4 style="color:green;text-transform: lowercase;">family-share.de/simple</h4></a> <br>
                 <h5>Hinweis: Eine vorhandene Anfrage wird angezeigt, sobald bei einem Stream auf Freischalten geklickt wurde.</h5>
+
+                <h4 class="pt-3">Wenn sie die E-mail notification für die Anfragen abstellen wollen, klicken sie auf deaktivieren
+                @if ($user->senden == 1) 
+                    {!! Form::open(['action' => ['DashboardController@senden'], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+                    <input name="senden" value="0" type='hidden'>
+                    <div class="pt-4"><button type="submit" style="" class="red button">E-mail deaktivieren</button> </td></div>
+                    {!! Form::close() !!}
+                @php
+                    
+                @endphp
+                @else 
+                {!! Form::open(['action' => ['DashboardController@senden'], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+                <input name="senden" value="1" type='hidden'>
+                <div class="pt-4"><button type="submit" style="" class="green button">E-mail aktivieren</button> </td></div>
+                {!! Form::close() !!}
+                @endif
+                </h4> 
                
            </div>
            <hr>

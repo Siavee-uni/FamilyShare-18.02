@@ -23,5 +23,9 @@ Route::post('/anfrage/{id}', 'PostsController@anfrage');
 Route::post('/anfragesimple/{id}', 'PostsController@anfragesimple');
 
 
+
+
 Auth::routes();
 Route::get('/dashboard', 'DashboardController@index');
+
+Route::post('/senden', 'DashboardController@senden');

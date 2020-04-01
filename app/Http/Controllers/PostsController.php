@@ -233,18 +233,22 @@ class PostsController extends Controller
         $post->anfrage = $request->input('anfrage');
 
         $post->save();
-
+        
+        if (auth()->user()->senden == 1) {
         $to      = $email;
-        $subject = 'the subject';
-        $message = 'hello';
-        $headers = 'From: webmaster@example.com' . "\r\n" .
-            'Reply-To: webmaster@example.com' . "\r\n" .
+        $subject = 'Neue Anfrage FamilyShare';
+        $message = 'Sie haben eine neue Anfrage';
+        $headers = 'From: info@family-share.de' . "\r\n" .
+            'Reply-To: info@family-share.de' . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
 
         mail($to, $subject, $message, $headers);
+        }
       
         return redirect('/posts');
     }
+
+    
 
     public function anfragesimple(Request $request, $id)
     {
