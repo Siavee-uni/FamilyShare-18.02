@@ -177,19 +177,21 @@ class PostsController extends Controller
         $post = Post::find($id);
         // Handle File Upload
         if($request->hasFile('image')){
-        // Get filename with the extension
-        $filenameWithExt = $request->file('image')->getClientOriginalName();
-        // Get just filename
-        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        // Get just ext
-        $extension = $request->file('image')->getClientOriginalExtension();
-        // Filename to store
-        $fileNameToStore= $filename.'_'.time().'.'.$extension;
-        // Upload Image
-        $path = $request->file('image')->storeAs('public/uploads', $fileNameToStore);
-        // Delete file if exists
-        Storage::delete('public/uploads/'.$post->image);
-        } 
+            //Get filename with the extension
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            //Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            //Get just ext
+            $extension = $request->file('image')->getClientOriginalExtension();
+            //Filename to store
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            //Upload Image
+            $path = $request->file('image')->move(public_path("/uploads"), $fileNameToStore);
+            } 
+            else 
+            {
+            $fileNameToStore = 'noimage.jpg';
+        }
         // Update Post
         $post->title = $request->input('title');
         $post->body = $request->input('body');
